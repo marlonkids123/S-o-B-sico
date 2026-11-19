@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="SÓ O BÁSICO — conhecimento, ferramentas e otimização de computadores sem complicação.">
+<title>SÓ O BÁSICO — O básico que funciona!</title>
+<style>
+:root{--bg:#080d15;--panel:#101925;--panel2:#142131;--line:#243449;--blue:#20a9ff;--blue2:#0879c9;--text:#edf5ff;--muted:#a6b4c5;--green:#68d6a3;--radius:18px;--max:1160px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#102d48 0,transparent 35%),var(--bg);color:var(--text);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}[hidden]{display:none!important}.btn:disabled{opacity:.65;cursor:wait;transform:none}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:10;background:#080d15eF;backdrop-filter:blur(14px);border-bottom:1px solid #1c2b3b}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-size:1.18rem;font-weight:950;letter-spacing:-.06em}.brand b{color:var(--blue)}.navlinks{display:flex;gap:24px;color:#c1cedc;font-size:.92rem}.navlinks a:hover{color:var(--blue)}.navright{display:flex;gap:10px;align-items:center}.auth-status{font-size:.82rem;color:#9fb2c7;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 18px;border:1px solid var(--line);border-radius:12px;color:var(--text);font-weight:750;background:#111c29;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px);border-color:var(--blue)}.btn.primary{background:linear-gradient(135deg,#168fe0,#086bb7);border-color:#168fe0;color:white;box-shadow:0 8px 28px #0879c933}.btn.small{padding:9px 13px;font-size:.88rem}
+.hero{padding:86px 0 70px;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#78caff;background:#0d2438;border:1px solid #17466a;padding:6px 11px;border-radius:999px;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px var(--blue)}
+h1{font-size:clamp(2.8rem,6vw,5.4rem);line-height:.98;letter-spacing:-.075em;margin:22px 0}.blue{color:var(--blue)}.lead{font-size:1.13rem;color:#b6c5d5;max-width:600px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 22px}.micro{color:#8496a9;font-size:.86rem}.hero-art{min-height:390px;position:relative;border:1px solid #1d3a53;border-radius:26px;overflow:hidden;background:linear-gradient(145deg,#10283c,#0a111c 65%);display:flex;align-items:center;justify-content:center}.hero-art:before,.hero-art:after{content:"";position:absolute;border-radius:50%;filter:blur(2px)}.hero-art:before{width:280px;height:280px;background:#0879c933;top:-70px;right:-40px}.hero-art:after{width:220px;height:220px;background:#20a9ff20;bottom:-80px;left:-30px}
+.monitor{position:relative;z-index:1;width:76%;padding:14px;border:1px solid #42627e;border-radius:14px;background:#08111c;box-shadow:0 25px 70px #0009;transform:perspective(900px) rotateY(-7deg) rotateX(3deg)}.screen{border-radius:8px;background:linear-gradient(135deg,#0b1b2b,#102d47);padding:25px;min-height:205px}.screen-logo{font-size:2rem;font-weight:950;letter-spacing:-.08em}.screen-logo span{color:var(--blue)}.screen-line{height:7px;border-radius:10px;background:#24435c;margin:13px 0;width:75%}.screen-line.short{width:46%}.screen-bars{display:flex;gap:7px;align-items:end;height:65px;margin-top:22px}.screen-bars i{display:block;flex:1;border-radius:4px 4px 0 0;background:linear-gradient(#20a9ff,#0879c9);height:var(--h)}.monitor-stand{height:28px;width:35%;margin:auto;background:#172a3b;clip-path:polygon(35% 0,65% 0,75% 100%,25% 100%)}.monitor-foot{height:8px;width:48%;margin:auto;background:#243c51;border-radius:50%}
+section{padding:66px 0}.section-head{max-width:700px;margin-bottom:30px}.kicker{color:var(--blue);font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;font-weight:900}.section-head h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.055em;line-height:1.08;margin:9px 0 12px}.section-head p{color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{background:linear-gradient(145deg,#111d2a,#0d1520);border:1px solid var(--line);border-radius:var(--radius);padding:22px;min-height:190px;transition:.2s}.card:hover{transform:translateY(-4px);border-color:#267db4}.ico{width:43px;height:43px;border-radius:13px;background:#0d2a42;color:#52bdff;display:grid;place-items:center;font-size:1.3rem;margin-bottom:20px}.card h3{margin:0 0 7px;font-size:1.12rem}.card p{margin:0;color:var(--muted);font-size:.92rem}.tag{display:inline-block;margin-top:15px;color:#7fcaff;font-size:.76rem;font-weight:800}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}.panel{background:linear-gradient(145deg,#111d2a,#0d1520);border:1px solid var(--line);border-radius:22px;padding:28px}.panel h3{font-size:1.45rem;letter-spacing:-.04em;margin:0 0 10px}.panel p{color:var(--muted)}.list{padding:0;list-style:none;margin:20px 0 0}.list li{display:flex;gap:11px;margin:12px 0;color:#d5e1ed}.check{color:var(--green);font-weight:900}
+.promise{border:1px solid #18517a;background:linear-gradient(120deg,#0e263a,#101a28);border-radius:22px;padding:28px;display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center}.promise h3{margin:0 0 8px;font-size:1.5rem}.promise p{margin:0;color:#b8c7d6}.promise strong{color:#fff}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{border-top:2px solid #1d79b6;padding:17px 16px;background:#101925;border-radius:0 0 14px 14px}.step b{display:block;margin-bottom:7px}.step span{font-size:.9rem;color:var(--muted)}
+.notice{padding:22px;border:1px solid #34465a;border-radius:16px;background:#0e1722;color:#b8c6d5}.notice strong{color:white}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:.87rem;color:#cbd8e5;font-weight:700}.field input,.field select,.field textarea{width:100%;background:#080f18;border:1px solid #2a3c50;border-radius:10px;color:#edf5ff;padding:12px;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #20a9ff1a}.field textarea{min-height:100px;resize:vertical}.agree{display:flex;gap:10px;align-items:flex-start;color:#b8c6d5;font-size:.88rem}.agree input{margin-top:5px;accent-color:var(--blue)}.form-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:18px}.formhint{font-size:.82rem;color:#8fa1b4}.result{display:none;margin-top:18px;padding:16px;border:1px solid #287c55;background:#0e241d;border-radius:12px;color:#c7f4dd;white-space:pre-wrap}
+footer{border-top:1px solid #1c2b3b;padding:30px 0 45px;color:#8fa1b4}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot b{color:#eaf4ff}
+.mobile{display:none}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:28px;padding-top:60px}.hero-art{min-height:310px}.grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.auth-status{display:none}.wrap{width:min(var(--max),calc(100% - 28px))}.nav{height:66px}.navlinks{display:none}.mobile{display:inline-flex}.navright .btn:not(.primary):not(#openAuth){display:none}.hero{padding:48px 0 42px}.hero-art{min-height:260px}.screen{padding:18px;min-height:165px}.screen-logo{font-size:1.5rem}.grid,.split,.steps,.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}section{padding:48px 0}.promise{grid-template-columns:1fr}.card{min-height:unset}}
+
+/* Novas áreas: downloads e configuração remota */
+.download-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.download-group{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.download-group h3{margin:0 0 6px;font-size:1.2rem}
+.download-group>p{margin:0 0 16px;color:var(--muted)}
+.download-empty{border:1px dashed #38506a;border-radius:13px;padding:18px;color:var(--muted);background:#0c1520}
+.download-item{display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid #28543f;border-radius:13px;padding:18px;background:#0c1a18}
+.download-item.paid-item{border-color:#66512c;background:#1b1710}
+.download-item h4{margin:0 0 5px;font-size:1.05rem}
+.download-item p{margin:0;color:var(--muted);font-size:.9rem}
+.download-item .btn{flex-shrink:0}
+.download-warning{margin-top:12px;padding:13px;border:1px solid #66512c;border-radius:12px;background:#211b10;color:#e8d8b5;font-size:.85rem}
+.download-label{display:inline-flex;align-items:center;border-radius:999px;padding:4px 10px;font-size:.76rem;font-weight:800;letter-spacing:.04em;margin-bottom:12px}
+.download-label.free{background:#123b30;color:#8ce4bd}
+.download-label.paid{background:#3b2d16;color:#ffd58a}
+.remote-panel{display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(135deg,#102b42,#101925);border:1px solid #245071;border-radius:var(--radius);padding:26px}
+.remote-panel h3{margin:0 0 8px}.remote-panel p{margin:0;color:var(--muted)}
+.disclosure{margin-top:18px;padding:18px;border:1px solid #3b5269;border-radius:14px;background:#0c1520;color:var(--muted)}
+.disclosure strong{color:var(--text)}
+.offer-button{margin-top:18px}
+.offer-dialog{width:min(620px,calc(100% - 28px));max-height:calc(100% - 28px);padding:0;border:1px solid #287cbb;border-radius:20px;background:#101925;color:var(--text);box-shadow:0 24px 80px #000b}
+.offer-dialog::backdrop{background:#03070cd9;backdrop-filter:blur(3px)}
+.dialog-content{padding:26px}
+.dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.dialog-head h2{margin:6px 0 0;font-size:clamp(1.5rem,5vw,2rem);line-height:1.15}
+.dialog-close{width:40px;height:40px;flex:0 0 40px;border:1px solid var(--line);border-radius:10px;background:#111c29;color:var(--text);font-size:1.4rem;cursor:pointer}
+.dialog-price{margin:18px 0;color:var(--blue);font-size:1.8rem;font-weight:900}
+.dialog-content>p{color:var(--muted)}
+.dialog-content .notice{margin-top:16px}
+.dialog-content .form-actions{margin-top:20px}
+@media(max-width:760px){.download-groups{grid-template-columns:1fr}.remote-panel{align-items:flex-start;flex-direction:column}.navlinks{gap:12px;flex-wrap:wrap}.nav{height:auto;min-height:76px;padding-top:12px;padding-bottom:12px}}
+@media(max-width:520px){.navright .btn.primary{display:none}.download-item{align-items:flex-start;flex-direction:column}.download-item .btn{width:100%}.dialog-content{padding:20px}}
+
+
+.auth-dialog{width:min(480px,calc(100% - 28px));max-height:calc(100% - 28px);padding:0;border:1px solid #287cbb;border-radius:20px;background:#101925;color:var(--text);box-shadow:0 24px 80px #000b}
+.auth-dialog::backdrop{background:#03070cdd;backdrop-filter:blur(3px)}
+.auth-content{padding:25px}.auth-title{display:flex;justify-content:space-between;align-items:flex-start;gap:15px}.auth-title h2{margin:5px 0 14px;font-size:1.6rem;letter-spacing:-.04em}.auth-close{width:38px;height:38px;border:1px solid var(--line);border-radius:10px;background:#111c29;color:var(--text);font-size:1.35rem;cursor:pointer}
+.auth-google{width:100%;background:#fff;color:#202124;border-color:#dadce0;margin:5px 0 15px}.auth-google:hover{border-color:#9aa0a6}.google-mark{width:19px;height:19px;display:inline-block;flex:0 0 19px}
+.auth-divider{display:flex;align-items:center;gap:12px;color:#8193a7;font-size:.82rem;margin:10px 0}.auth-divider:before,.auth-divider:after{content:"";height:1px;background:#2a3c50;flex:1}
+.auth-field{display:flex;flex-direction:column;gap:6px;margin:12px 0}.auth-field label{font-size:.87rem;color:#cbd8e5;font-weight:700}.auth-field input{width:100%;background:#080f18;border:1px solid #2a3c50;border-radius:10px;color:#edf5ff;padding:12px;outline:none}.auth-field input:focus{border-color:var(--blue)}
+.auth-message{display:none;margin:12px 0;padding:11px 13px;border-radius:10px;background:#102b42;border:1px solid #245071;color:#cceaff;font-size:.88rem}.auth-message.error{background:#321b1d;border-color:#784044;color:#ffd5d5}.auth-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.auth-actions .btn{flex:1}.auth-switch{color:#a6b4c5;font-size:.88rem;text-align:center;margin:15px 0 0}.auth-switch button{border:0;background:none;color:#65c1ff;font-weight:800;cursor:pointer}.auth-note{font-size:.78rem;color:#8496a9;margin:13px 0 0}
+
+
+/* Biblioteca privada de compras */
+.library-panel{background:linear-gradient(145deg,#111d2a,#0d1520);border:1px solid #26577a;border-radius:var(--radius);padding:24px}
+.library-toolbar{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+.library-toolbar h3{margin:0 0 5px;font-size:1.3rem}.library-toolbar p{margin:0;color:var(--muted);font-size:.92rem}
+.library-signin{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.library-signin p{margin:0;color:var(--muted)}
+.library-status{color:#a7c8e6;margin:10px 0}.library-status:empty{display:none}
+#libraryProduct{margin-top:14px}
+.admin-files{margin-top:20px;padding-top:18px;border-top:1px solid #35516b}
+.admin-files h3{margin:0 0 6px;font-size:1.12rem}
+.admin-files>p{color:var(--muted);font-size:.88rem;margin:0 0 16px}
+.admin-file-row{margin:10px 0;background:#0c1c2d;border-color:#31516c}
+.admin-file-path{overflow-wrap:anywhere;font-size:.78rem!important;color:#9aafc8!important}
+.admin-files code{color:#a8e0ff}
+
+@media(max-width:650px){.library-panel{padding:18px}.library-toolbar .btn{width:100%}}
+
+
+/* ══ SÓ O BÁSICO · tema preto real + vermelho ══ */
+:root{--bg:#050505;--panel:#101013;--panel2:#17171b;--line:#303036;--blue:#ff2739;--blue2:#b80b1b;--text:#f8f8fa;--muted:#aaaab2;--green:#74d2a1;--max:1320px;--radius:18px}
+html{scroll-padding-top:88px}body{background:#050505!important;color:var(--text);overflow-x:hidden}
+body::before{content:"";position:absolute;top:80px;left:0;right:0;height:610px;pointer-events:none;background:radial-gradient(ellipse at 73% 22%,rgba(163,0,21,.13),transparent 46%);z-index:-1}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid #ff3847;outline-offset:3px}
+header{background:rgba(3,3,4,.95)!important;border-bottom:1px solid #2d1b20;backdrop-filter:blur(20px)}
+.nav{height:80px;gap:18px}.brand{white-space:nowrap;font-size:1.23rem;letter-spacing:-.055em}.brand b{color:#ff2337}.brand-bolt{display:inline-block;color:#ff2337;font-size:2.1rem;font-style:italic;line-height:0;margin-right:9px;vertical-align:-.12em;text-shadow:0 0 20px #d3112347}
+.navlinks{gap:16px;font-size:.83rem;flex-wrap:nowrap;align-items:center}.navlinks a{white-space:nowrap;transition:color .18s}.navlinks a:hover{color:#ff4b56}.nav-extra{display:none}.navright{gap:8px}.auth-status{color:#dfb9bd;max-width:118px}.nav-eval{font-size:.81rem!important}.nav-toggle{display:none}
+.btn{background:#121215;border-color:#38383e;color:#fafafa;box-shadow:none;font-weight:760}.btn.primary{background:linear-gradient(135deg,#ec1727,#af0013);border-color:#ff263b;box-shadow:0 10px 30px rgba(222,0,25,.23)}.btn:hover{border-color:#ff263b;box-shadow:0 12px 28px #a800171a}.btn.primary:hover{background:linear-gradient(135deg,#ff273c,#c50b21);box-shadow:0 14px 32px #d800294f}
+.hero{position:relative;grid-template-columns:1.02fr .98fr;gap:5px;padding:76px 0 55px;min-height:470px;align-items:center}
+.hero-copy{position:relative;z-index:2}.eyebrow{background:transparent;border:0;color:#ff3344;letter-spacing:.15em;padding:4px 0;font-size:.8rem}.eyebrow .dot{background:#ff293b;box-shadow:0 0 18px #ff263b}
+.hero h1{font-size:clamp(3.5rem,6vw,6.25rem);line-height:1.02;letter-spacing:-.077em;margin:24px 0 16px}.red,.blue{color:#ff2237}.lead{font-size:1.2rem;color:#c9c9cf;max-width:600px}.hero-actions{margin:30px 0 21px}.hero-main-btn{text-transform:uppercase;letter-spacing:.025em}.micro{color:#92929c}
+.hero-art{height:440px;min-height:0;border:0;border-radius:0;background:transparent;overflow:hidden;justify-content:flex-end;align-items:center;position:relative}.hero-art img{width:112%;height:100%;object-fit:contain;object-position:center;filter:saturate(1.08) contrast(1.07);-webkit-mask-image:linear-gradient(90deg,transparent 0%,black 21%,black 91%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,black 21%,black 91%,transparent 100%)}.hero-art::before,.hero-art::after{display:none}
+section{padding:72px 0}.section-head{max-width:840px;margin-bottom:32px}.kicker{color:#ff3848}.section-head h2{color:#f8f8fb}.section-head p{color:#b4b4bb}
+.category-grid{gap:17px}.category-card{position:relative;display:flex;flex-direction:column;min-height:225px;background:linear-gradient(150deg,#111115 0%,#070708 100%);border:1px solid #433034;box-shadow:inset 0 1px 0 rgba(255,255,255,.045)}.category-card:hover{border-color:#ef2c3b;box-shadow:0 14px 34px #dc102020}.category-card::after{content:'↗';position:absolute;right:19px;bottom:17px;color:#ff2838;font-size:1.5rem}.category-card .ico{background:linear-gradient(145deg,#5c050e,#1e070a);border:1px solid #8b1622;color:#ff3545;font-size:1.55rem;width:52px;height:52px;margin-bottom:18px;box-shadow:0 8px 28px #f11b2716}.category-card h3{font-size:1.16rem}.category-card p{color:#c7c7ce}.category-card .tag{margin-top:auto;padding-top:18px;color:#ff5360}
+.card,.panel,.download-group,.library-panel{background:linear-gradient(145deg,#111114,#09090b);border-color:#323238;color:#f8f8fa}.card:hover{border-color:#b91e2c}.panel p,.card p,.download-group>p{color:#b8b8c1}.download-empty{background:#101012;border-color:#38383e}.download-item{background:#101513;border-color:#23533a}.download-item.paid-item{background:#17130c;border-color:#6b4c21}.download-warning{background:#20170d}.remote-panel{background:linear-gradient(135deg,#19090b,#100d0f);border-color:#5b1820}.promise{background:linear-gradient(125deg,#201013,#111014);border-color:#661522}.step{background:#111114;border-color:#a51929}.notice{background:#121215;border-color:#3a3035;color:#d0c7c9}.disclosure{background:#101014;border-color:#39333a}.field input,.field select,.field textarea{background:#080809;border-color:#333239;color:#fafafa}.field input:focus,.field select:focus,.field textarea:focus{box-shadow:0 0 0 3px #ff273921}.auth-dialog,.offer-dialog{background:#111114;border-color:#a72130}.dialog-close,.auth-close{background:#18181d}.auth-divider:before,.auth-divider:after{background:#343239}.auth-message{background:#201013;border-color:#5b1d29;color:#ffdee1}.auth-message.error{background:#321819}.auth-field input{background:#080809;border-color:#454047}.auth-switch button{color:#ff5562}.auth-google{background:white;color:#202124;border-color:#dadce0}
+.library-panel{border-color:#61202b}.library-status{color:#f4b4c0}.admin-files{border-color:#443034}.admin-file-row{background:#181115;border-color:#61202b}.admin-file-path{color:#ccb7bc!important}.admin-files code{color:#ff8791}
+footer{background:#050505;border-top-color:#2d242a;color:#adadb3}.foot b{color:#fff}
+.feature-section{border-top:1px solid #17171a}.feature-section .section-head{max-width:850px}.feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.feature-card{padding:27px;background:#101013;border:1px solid #352629;border-radius:18px;box-shadow:0 10px 25px #0003}.feature-symbol{font-size:2rem;color:#ff3848}.feature-card h3{font-size:1.3rem;margin:9px 0}.feature-card p{margin:0;color:#bdbdc5}.feature-note{margin-top:22px;border:1px solid #582129;border-radius:14px;padding:19px;background:#190e11;color:#d3c1c3}.insights-grid .panel{height:100%}.insights-grid p{font-size:.98rem;line-height:1.78}.insights-grid strong{color:white}
+.terminal-notice{background:#180e11;border:1px solid #65222c;border-left:4px solid #ff2639;border-radius:14px;padding:20px 22px;margin-bottom:25px}.terminal-notice strong{color:#fff}.terminal-notice p{color:#cac0c3;margin:8px 0 0;font-size:.92rem}
+.script-topbar{display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:17px 19px;background:#0e0e11;border:1px solid #343036;border-radius:14px;margin-bottom:30px}.script-topbar label{font-weight:800}.script-topbar input{flex:1;min-width:160px;padding:12px 15px;background:#050506;color:#fff;border:1px solid #404048;border-radius:10px;outline:none}.script-topbar input:focus{border-color:#ff3040}.script-topbar span{font-size:.83rem;color:#ff737c}
+.category-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:35px 0 17px}.category-heading h3{font-size:1.55rem;margin:4px 0 0}.category-heading p{margin:4px 0;color:#aeabb3;font-size:.92rem}.category-counter{white-space:nowrap;border:1px solid #3b3035;padding:6px 12px;border-radius:999px;color:#d4c5c8;font-size:.76rem}
+.command-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.command-card{display:flex;flex-direction:column;gap:13px;background:#0c0c0f;border:1px solid #363137;border-radius:17px;padding:22px;min-width:0;box-shadow:inset 0 1px 0 #ffffff08;transition:border-color .2s}.command-card:hover{border-color:#942331}.command-card-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}.command-card h4{margin:0;color:#f8f8fa;font-size:1.12rem}.system-chip{color:#cfcfd4;background:#25252b;border:1px solid #393940;border-radius:999px;padding:3px 8px;font-size:.69rem;font-weight:700;white-space:nowrap}.command-description{margin:0;color:#c2c2ca;font-size:.91rem}.code-meta{display:flex;gap:7px;flex-wrap:wrap;color:#aaa3ab;font-size:.75rem;font-weight:700;margin-top:auto}.code-box{display:flex;gap:12px;align-items:center;background:#050506;border:1px solid #2e2e34;border-radius:10px;padding:12px 12px 12px 15px;flex-wrap:wrap;min-width:0}.code-box code{color:#f9f9f9;font-size:.81rem;overflow-wrap:anywhere;word-break:break-word;flex:1;min-width:150px;white-space:pre-wrap}.copy-command{display:inline-flex;align-items:center;justify-content:center;gap:5px;background:#19191d;border:1px solid #48434a;border-radius:9px;color:white;padding:9px 11px;font-size:.76rem;font-weight:750;cursor:pointer;white-space:nowrap}.copy-command:hover{background:#55131e;border-color:#ff3848}.copy-command.copied{background:#134a30;border-color:#40bc81}.command-warning{border-left:3px solid #45454d;padding:9px 10px;margin:0;font-size:.81rem;color:#b5b5bc;background:#151518;border-radius:0 7px 7px 0}.command-warning.atencao{border-color:#cb8b2c;color:#e4c598;background:#21190f}.command-warning.avancado{border-color:#ff3040;color:#ffb7bd;background:#240f14}.undo-block{border:1px solid #3b3238;border-radius:10px;padding:10px 12px;margin-top:2px}.undo-block summary{cursor:pointer;font-size:.83rem;color:#f1a3ab;font-weight:800}.undo-block .code-box{margin-top:10px}.terminal-note-bottom{color:#a9a4ab;font-size:.86rem;margin:28px 0 0}.offer-timing{border:1px solid #882531;background:#251014;border-radius:14px;padding:16px 19px;margin-top:15px}.offer-timing strong{color:#fff}.offer-timing p{font-size:.9rem;color:#f0c7cb;margin:7px 0 0}.no-command-results{color:#ff8993}
+@media(max-width:1240px){.navlinks{gap:11px;font-size:.77rem}.nav-eval{display:none}}
+@media(max-width:1060px){.navlinks{display:none;position:absolute;top:calc(100% - 1px);left:0;right:0;background:#09090b;border-bottom:1px solid #61202b;padding:16px 24px;flex-direction:column;align-items:stretch;gap:6px;box-shadow:0 20px 26px #000a}.navlinks.open{display:flex}.navlinks a{padding:10px 8px;border-radius:8px}.navlinks a:hover{background:#211012}.nav-toggle{display:inline-flex}.nav-extra{display:block}.nav{height:72px}.auth-status{max-width:130px}.hero{gap:6px}.hero-art{height:365px}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding:54px 0 35px}.hero-art{height:300px;justify-content:center}.hero-art img{max-width:700px;width:100%}.feature-grid{grid-template-columns:1fr}.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.insights-grid{grid-template-columns:1fr}.command-grid{grid-template-columns:1fr}}
+@media(max-width:650px){.wrap{width:min(var(--max),calc(100% - 28px))}.brand{font-size:1.03rem}.brand-bolt{font-size:1.45rem}.nav{height:65px}.navright .auth-entry{display:inline-flex!important}.navright .nav-toggle{display:inline-flex!important}.hero{padding:43px 0 28px}.hero h1{font-size:clamp(3rem,10vw,4.3rem)}.hero-art{height:235px}.hero-actions .btn{width:100%}.hero .lead{font-size:1.03rem}.eyebrow{font-size:.68rem}.category-grid{grid-template-columns:1fr}.category-card{min-height:180px}.command-card{padding:17px}.category-heading{align-items:flex-start;flex-direction:column}.script-topbar input{width:100%}.navright{gap:5px}.auth-status{display:none}.feature-section{padding:54px 0}}
+#configuracao-remota .card[style]{border-color:#6d1a28!important;box-shadow:inset 0 1px 0 #ffffff0b!important}
+#configuracao-remota .card[style] .tag{color:#ff4f5d}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a class="brand" href="#inicio"><span class="brand-bolt" aria-hidden="true">ϟ</span>SÓ O <b>BÁSICO.</b></a>
+  <nav class="navlinks" id="primaryNav" aria-label="Navegação principal">
+    <a href="#inicio">Início</a><a href="#downloads">Downloads</a><a href="#scripts">Scripts e Ajustes</a><a href="#freefire">Free Fire</a><a href="#dicas">Dicas e Testes</a><a href="#minha-biblioteca">Minha biblioteca</a><a class="nav-extra" href="#configuracao-remota">Serviços</a>
+   </nav>
+  <div class="navright"><span class="auth-status" id="authStatus" aria-live="polite"></span><button class="btn small auth-entry" id="openAuth" type="button">Entrar</button><a class="btn primary small nav-eval" href="#avaliacao">Avaliar meu PC ↗</a><button type="button" id="navToggle" class="btn small nav-toggle" aria-controls="primaryNav" aria-expanded="false" aria-label="Abrir menu">☰</button></div>
+ </div>
+</header>
+<main>
+ <div class="wrap hero" id="inicio">
+  <div class="hero-copy">
+   <span class="eyebrow"><i class="dot"></i> OTIMIZAÇÃO · DESEMPENHO · WINDOWS</span>
+   <h1>O básico que<br><span class="blue">funciona.</span></h1>
+   <p class="lead">Mais desempenho, estabilidade e controle para seu Windows. Ferramentas e informações práticas, sem fórmulas mágicas.</p>
+   <div class="hero-actions"><a class="btn primary hero-main-btn" href="#configuracao-remota">🚀 &nbsp; Explorar otimizações <span aria-hidden="true">↗</span></a><a class="btn" href="#minha-biblioteca">▣ &nbsp; Minha biblioteca</a></div>
+   <div class="micro">Windows 10/11 Pro · Scripts e diagnósticos · Jogos e emuladores</div>
+  </div>
+  <div class="hero-art" role="img" aria-label="Computador gamer com iluminação vermelha e Windows na tela">
+   <img src="assets/hero-pc-vermelho.webp" loading="eager" alt="Computador gamer, monitor e periféricos com iluminação vermelha" width="713" height="426">
+  </div>
+ </div>
+
+ <section id="conteudo">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Conhecimento aberto</span><h2>Informação útil, sem mistério.</h2><p>Um espaço para compartilhar ferramentas, configurações e aprendizados que realmente fazem sentido no dia a dia.</p></div>
+   <div class="grid category-grid">
+    <a class="card category-card" href="#downloads"><div class="ico">⇩</div><h3>Downloads</h3><p>Arquivos gratuitos, produtos e ferramentas para o Windows.</p><span class="tag">EXPLORAR <span aria-hidden="true">↗</span></span></a>
+    <a class="card category-card" href="#scripts"><div class="ico">⌘</div><h3>Scripts e Ajustes</h3><p>Comandos de diagnóstico, manutenção, energia e configurações.</p><span class="tag">VER COMANDOS <span aria-hidden="true">↗</span></span></a>
+    <a class="card category-card" href="#freefire"><div class="ico">♧</div><h3>Otimizações Free Fire</h3><p>Foco em emulador: ajustes, fluidez e estabilidade.</p><span class="tag">CONHECER <span aria-hidden="true">↗</span></span></a>
+    <a class="card category-card" href="#dicas"><div class="ico">◉</div><h3>Dicas e Testes</h3><p>Nosso propósito, Windows 10/11 Pro e desempenho em jogos.</p><span class="tag">SAIBA MAIS <span aria-hidden="true">↗</span></span></a>
+   </div>
+  </div>
+ </section>
+
+
+<section id="scripts" class="feature-section">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Biblioteca de comandos</span><h2>Scripts e <span class="red">Ajustes</span></h2><p>Comandos prontos para consultar, manter e configurar o Windows. Leia a descrição antes de executar; alguns mudam configurações importantes.</p></div>
+   <div class="terminal-notice"><strong>Antes de começar</strong><p>Abra o CMD ou PowerShell como <strong>administrador</strong> quando indicado. Para abrir: pesquise por Terminal, CMD ou PowerShell no menu Iniciar e selecione <strong>Executar como administrador</strong>. Comandos de consulta geralmente não precisam de elevação. Crie um ponto de restauração antes dos ajustes avançados.</p></div>
+   <div class="script-topbar"><label for="commandSearch">Encontrar um comando</label><input id="commandSearch" type="search" autocomplete="off" placeholder="Buscar por nome, categoria ou comando..." aria-label="Pesquisar comandos"><span id="commandCount" aria-live="polite"></span></div>
+
+   <div class="command-category" id="cat-energia"><div class="category-heading"><div><span class="kicker">Planos de energia</span><h3>Planos de energia</h3><p>Configurações de energia e consumo do Windows.</p></div><span class="category-counter">2 comandos</span></div><div class="command-grid">
+    <article class="command-card" data-command-search="plano de energia — desempenho máximo powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61 adiciona o plano desempenho máximo (ultimate performance) ao windows, oferecendo uma configuração voltada ao desempenho. depois, selecione o plano nas opções de energia. planos de energia">
+      <div class="command-card-heading"><h4>Plano de Energia — Desempenho Máximo</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Adiciona o plano Desempenho Máximo (Ultimate Performance) ao Windows, oferecendo uma configuração voltada ao desempenho. Depois, selecione o plano nas opções de energia.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-1">powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61</code><button type="button" class="copy-command" data-copy-target="command-1" aria-label="Copiar Plano de Energia — Desempenho Máximo">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning atencao"><span aria-hidden="true">⚠</span> Pode aumentar o consumo de energia e não garante FPS maior.</p>
+    </article>
+    <article class="command-card" data-command-search="desativar hibernação powercfg.exe /hibernate off desativa a hibernação do windows e libera o espaço reservado para o arquivo de hibernação. também desativa a inicialização rápida que depende desse recurso. planos de energia">
+      <div class="command-card-heading"><h4>Desativar Hibernação</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Desativa a hibernação do Windows e libera o espaço reservado para o arquivo de hibernação. Também desativa a Inicialização Rápida que depende desse recurso.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-2">powercfg.exe /hibernate off</code><button type="button" class="copy-command" data-copy-target="command-2" aria-label="Copiar Desativar Hibernação">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning normal"><span aria-hidden="true">ⓘ</span> Use apenas se não precisar de hibernação ou Inicialização Rápida.</p>
+      <details class="undo-block"><summary>Como desfazer este ajuste</summary><div class="code-box"><code id="command-2-undo">powercfg.exe /hibernate on</code><button type="button" class="copy-command secondary" data-copy-target="command-2-undo">▣ &nbsp; Copiar</button></div></details>
+    </article>
+</div></div>
+   <div class="command-category" id="cat-diagnostico"><div class="category-heading"><div><span class="kicker">Diagnóstico e monitoramento</span><h3>Diagnóstico e monitoramento</h3><p>Comandos para consultar informações e investigar problemas.</p></div><span class="category-counter">6 comandos</span></div><div class="command-grid">
+    <article class="command-card" data-command-search="listar processos em execução get-process exibe os processos em execução, com nome, pid, memória utilizada e tempo de cpu acumulado. diagnóstico e monitoramento">
+      <div class="command-card-heading"><h4>Listar Processos em Execução</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Exibe os processos em execução, com nome, PID, memória utilizada e tempo de CPU acumulado.</p>
+      <div class="code-meta"><span>PowerShell</span><span>•</span><span>Administrador: Não obrigatório</span></div>
+      <div class="code-box"><code id="command-3">Get-Process</code><button type="button" class="copy-command" data-copy-target="command-3" aria-label="Copiar Listar Processos em Execução">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning normal"><span aria-hidden="true">ⓘ</span> Consulta informativa; não encerra processos nem aumenta o FPS.</p>
+    </article>
+    <article class="command-card" data-command-search="consultar configurações de rede ipconfig mostra os endereços ip, máscaras e gateways das conexões de rede. diagnóstico e monitoramento">
+      <div class="command-card-heading"><h4>Consultar Configurações de Rede</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Mostra os endereços IP, máscaras e gateways das conexões de rede.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Não obrigatório</span></div>
+      <div class="code-box"><code id="command-4">ipconfig</code><button type="button" class="copy-command" data-copy-target="command-4" aria-label="Copiar Consultar Configurações de Rede">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning normal"><span aria-hidden="true">ⓘ</span> Consulta informativa; não melhora ping nem velocidade.</p>
+    </article>
+    <article class="command-card" data-command-search="informações do computador get-computerinfo exibe informações sobre windows, hardware, bios e outros detalhes do sistema. diagnóstico e monitoramento">
+      <div class="command-card-heading"><h4>Informações do Computador</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Exibe informações sobre Windows, hardware, BIOS e outros detalhes do sistema.</p>
+      <div class="code-meta"><span>PowerShell</span><span>•</span><span>Administrador: Não obrigatório</span></div>
+      <div class="code-box"><code id="command-5">Get-ComputerInfo</code><button type="button" class="copy-command" data-copy-target="command-5" aria-label="Copiar Informações do Computador">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning normal"><span aria-hidden="true">ⓘ</span> Pode mostrar dados identificadores do computador: evite compartilhar a saída completa.</p>
+    </article>
+    <article class="command-card" data-command-search="testar conexão com a internet test-connection google.com testa a conectividade com o google e mede o tempo de resposta da rede. diagnóstico e monitoramento">
+      <div class="command-card-heading"><h4>Testar Conexão com a Internet</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Testa a conectividade com o Google e mede o tempo de resposta da rede.</p>
+      <div class="code-meta"><span>PowerShell</span><span>•</span><span>Administrador: Não obrigatório</span></div>
+      <div class="code-box"><code id="command-6">Test-Connection google.com</code><button type="button" class="copy-command" data-copy-target="command-6" aria-label="Copiar Testar Conexão com a Internet">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning normal"><span aria-hidden="true">ⓘ</span> O ping do teste não representa necessariamente o ping dos jogos.</p>
+    </article>
+    <article class="command-card" data-command-search="consultar uso de memória ntfs fsutil behavior query memoryusage consulta a configuração de memória associada ao sistema de arquivos ntfs. diagnóstico e monitoramento">
+      <div class="command-card-heading"><h4>Consultar Uso de Memória NTFS</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Consulta a configuração de memória associada ao sistema de arquivos NTFS.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-7">fsutil behavior query memoryusage</code><button type="button" class="copy-command" data-copy-target="command-7" aria-label="Copiar Consultar Uso de Memória NTFS">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning normal"><span aria-hidden="true">ⓘ</span> Apenas consulta; o suporte e a interpretação podem variar entre versões do Windows.</p>
+    </article>
+    <article class="command-card" data-command-search="consultar estado do trim fsutil behavior query disabledeletenotify consulta a configuração de notificações de exclusão de blocos usadas por unidades compatíveis. diagnóstico e monitoramento">
+      <div class="command-card-heading"><h4>Consultar Estado do TRIM</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Consulta a configuração de notificações de exclusão de blocos usadas por unidades compatíveis.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-8">fsutil behavior query DisableDeleteNotify</code><button type="button" class="copy-command" data-copy-target="command-8" aria-label="Copiar Consultar Estado do TRIM">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning normal"><span aria-hidden="true">ⓘ</span> Valor 0 normalmente indica que as notificações estão habilitadas; isso não prova o funcionamento físico do TRIM.</p>
+    </article>
+</div></div>
+   <div class="command-category" id="cat-manutencao"><div class="category-heading"><div><span class="kicker">Limpeza e reparo do Windows</span><h3>Limpeza e reparo do Windows</h3><p>Ferramentas oficiais para limpeza e integridade do sistema.</p></div><span class="category-counter">4 comandos</span></div><div class="command-grid">
+    <article class="command-card" data-command-search="esvaziar a lixeira clear-recyclebin esvazia a lixeira do windows, normalmente solicitando confirmação. limpeza e reparo do windows">
+      <div class="command-card-heading"><h4>Esvaziar a Lixeira</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Esvazia a Lixeira do Windows, normalmente solicitando confirmação.</p>
+      <div class="code-meta"><span>PowerShell</span><span>•</span><span>Administrador: Recomendado</span></div>
+      <div class="code-box"><code id="command-9">Clear-RecycleBin</code><button type="button" class="copy-command" data-copy-target="command-9" aria-label="Copiar Esvaziar a Lixeira">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning atencao"><span aria-hidden="true">⚠</span> A exclusão pode ser difícil de reverter. Confira os arquivos antes de continuar.</p>
+    </article>
+    <article class="command-card" data-command-search="limpeza de disco — unidade c: cleanmgr.exe /d c: abre a ferramenta de limpeza de disco selecionando a unidade c:. limpeza e reparo do windows">
+      <div class="command-card-heading"><h4>Limpeza de Disco — Unidade C:</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Abre a ferramenta de Limpeza de Disco selecionando a unidade C:.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Recomendado</span></div>
+      <div class="code-box"><code id="command-10">cleanmgr.exe /d C:</code><button type="button" class="copy-command" data-copy-target="command-10" aria-label="Copiar Limpeza de Disco — Unidade C:">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning normal"><span aria-hidden="true">ⓘ</span> Revise as opções de limpeza antes de excluir arquivos. Sintaxe revisada a partir do comando enviado.</p>
+    </article>
+    <article class="command-card" data-command-search="verificar e reparar arquivos do sistema — sfc sfc /scannow verifica a integridade dos arquivos protegidos do windows e tenta reparar os que estiverem corrompidos. limpeza e reparo do windows">
+      <div class="command-card-heading"><h4>Verificar e Reparar Arquivos do Sistema — SFC</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Verifica a integridade dos arquivos protegidos do Windows e tenta reparar os que estiverem corrompidos.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-11">sfc /scannow</code><button type="button" class="copy-command" data-copy-target="command-11" aria-label="Copiar Verificar e Reparar Arquivos do Sistema — SFC">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning normal"><span aria-hidden="true">ⓘ</span> Pode demorar; não interrompa a verificação. Não é um comando para aumentar FPS.</p>
+    </article>
+    <article class="command-card" data-command-search="reparar imagem do windows — dism dism /online /cleanup-image /restorehealth repara problemas do repositório de componentes da instalação atual do windows. limpeza e reparo do windows">
+      <div class="command-card-heading"><h4>Reparar Imagem do Windows — DISM</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Repara problemas do repositório de componentes da instalação atual do Windows.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-12">dism /online /cleanup-image /restorehealth</code><button type="button" class="copy-command" data-copy-target="command-12" aria-label="Copiar Reparar Imagem do Windows — DISM">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning normal"><span aria-hidden="true">ⓘ</span> Pode precisar de conexão com a internet. Em caso de corrupção, costuma-se usar DISM e depois SFC.</p>
+    </article>
+</div></div>
+   <div class="command-category" id="cat-rede"><div class="category-heading"><div><span class="kicker">Diagnóstico e manutenção de rede</span><h3>Diagnóstico e manutenção de rede</h3><p>Verifique e repare aspectos da conexão com cuidado.</p></div><span class="category-counter">4 comandos</span></div><div class="command-grid">
+    <article class="command-card" data-command-search="limpar cache dns ipconfig /flushdns remove registros armazenados no cache dns local para forçar novas consultas quando necessário. diagnóstico e manutenção de rede">
+      <div class="command-card-heading"><h4>Limpar Cache DNS</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Remove registros armazenados no cache DNS local para forçar novas consultas quando necessário.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-13">ipconfig /flushdns</code><button type="button" class="copy-command" data-copy-target="command-13" aria-label="Copiar Limpar Cache DNS">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning normal"><span aria-hidden="true">ⓘ</span> Pode ajudar com falhas de resolução de nomes, mas não reduz o ping diretamente.</p>
+    </article>
+    <article class="command-card" data-command-search="liberar endereço ipv4 ipconfig /release libera o endereço ipv4 recebido por dhcp no adaptador. diagnóstico e manutenção de rede">
+      <div class="command-card-heading"><h4>Liberar Endereço IPv4</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Libera o endereço IPv4 recebido por DHCP no adaptador.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-14">ipconfig /release</code><button type="button" class="copy-command" data-copy-target="command-14" aria-label="Copiar Liberar Endereço IPv4">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning atencao"><span aria-hidden="true">⚠</span> Desconecta temporariamente a rede. Não use sem cuidado em acesso remoto.</p>
+    </article>
+    <article class="command-card" data-command-search="renovar endereço ipv4 ipconfig /renew solicita ao servidor dhcp um novo endereço ipv4 para o adaptador. diagnóstico e manutenção de rede">
+      <div class="command-card-heading"><h4>Renovar Endereço IPv4</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Solicita ao servidor DHCP um novo endereço IPv4 para o adaptador.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-15">ipconfig /renew</code><button type="button" class="copy-command" data-copy-target="command-15" aria-label="Copiar Renovar Endereço IPv4">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning normal"><span aria-hidden="true">ⓘ</span> Use depois de /release apenas quando fizer sentido; depende de DHCP ativo.</p>
+    </article>
+    <article class="command-card" data-command-search="redefinir catálogo winsock netsh winsock reset redefine o catálogo winsock, podendo corrigir determinados problemas de conectividade. diagnóstico e manutenção de rede">
+      <div class="command-card-heading"><h4>Redefinir Catálogo Winsock</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Redefine o catálogo Winsock, podendo corrigir determinados problemas de conectividade.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-16">netsh winsock reset</code><button type="button" class="copy-command" data-copy-target="command-16" aria-label="Copiar Redefinir Catálogo Winsock">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning normal"><span aria-hidden="true">ⓘ</span> Pode exigir reinicialização e afetar softwares de rede; não é um ajuste de FPS.</p>
+    </article>
+</div></div>
+   <div class="command-category" id="cat-armazenamento"><div class="category-heading"><div><span class="kicker">Armazenamento e NTFS</span><h3>Armazenamento e NTFS</h3><p>Consulta e ajustes avançados do sistema de arquivos.</p></div><span class="category-counter">2 comandos</span></div><div class="command-grid">
+    <article class="command-card" data-command-search="ajustar memória do ntfs — avançado fsutil behavior set memoryusage 2 altera a configuração de memória interna do ntfs em versões do windows que suportam essa opção. armazenamento e ntfs">
+      <div class="command-card-heading"><h4>Ajustar Memória do NTFS — Avançado</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Altera a configuração de memória interna do NTFS em versões do Windows que suportam essa opção.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-17">fsutil behavior set memoryusage 2</code><button type="button" class="copy-command" data-copy-target="command-17" aria-label="Copiar Ajustar Memória do NTFS — Avançado">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning avancado"><span aria-hidden="true">⚠</span> Pode aumentar consumo de memória, não garante melhora de desempenho e pode não ser aceito em determinadas versões. Reinicie depois da alteração.</p>
+      <details class="undo-block"><summary>Como desfazer este ajuste</summary><div class="code-box"><code id="command-17-undo">fsutil behavior set memoryusage 1</code><button type="button" class="copy-command secondary" data-copy-target="command-17-undo">▣ &nbsp; Copiar</button></div></details>
+    </article>
+    <article class="command-card" data-command-search="habilitar notificações trim fsutil behavior set disabledeletenotify 0 habilita as notificações de exclusão de blocos para sistemas e unidades que as suportam. armazenamento e ntfs">
+      <div class="command-card-heading"><h4>Habilitar Notificações TRIM</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Habilita as notificações de exclusão de blocos para sistemas e unidades que as suportam.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-18">fsutil behavior set disabledeletenotify 0</code><button type="button" class="copy-command" data-copy-target="command-18" aria-label="Copiar Habilitar Notificações TRIM">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning avancado"><span aria-hidden="true">⚠</span> Não força suporte físico a TRIM e a configuração pode já estar habilitada; consulte antes de alterar.</p>
+    </article>
+</div></div>
+   <div class="command-category" id="cat-avancados"><div class="category-heading"><div><span class="kicker">Ajustes avançados — use com cautela</span><h3>Ajustes avançados — use com cautela</h3><p>Mudanças que podem prejudicar o desempenho ou a conectividade; não são recomendações universais.</p></div><span class="category-counter">4 comandos</span></div><div class="command-grid">
+    <article class="command-card" data-command-search="configurar platform tick bcdedit /set useplatformtick yes altera o uso de temporizadores da plataforma durante a inicialização do windows. ajustes avançados — use com cautela">
+      <div class="command-card-heading"><h4>Configurar Platform Tick</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Altera o uso de temporizadores da plataforma durante a inicialização do Windows.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-19">bcdedit /set useplatformtick yes</code><button type="button" class="copy-command" data-copy-target="command-19" aria-label="Copiar Configurar Platform Tick">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning avancado"><span aria-hidden="true">⚠</span> Ajuste de depuração. Pode piorar desempenho e consumo; não recomendado como otimização universal. Exige reinício.</p>
+      <details class="undo-block"><summary>Como desfazer este ajuste</summary><div class="code-box"><code id="command-19-undo">bcdedit /deletevalue useplatformtick</code><button type="button" class="copy-command secondary" data-copy-target="command-19-undo">▣ &nbsp; Copiar</button></div></details>
+    </article>
+    <article class="command-card" data-command-search="desativar dynamic tick bcdedit /set disabledynamictick yes altera o comportamento do temporizador dynamic tick do windows. ajustes avançados — use com cautela">
+      <div class="command-card-heading"><h4>Desativar Dynamic Tick</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Altera o comportamento do temporizador Dynamic Tick do Windows.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-20">bcdedit /set disabledynamictick yes</code><button type="button" class="copy-command" data-copy-target="command-20" aria-label="Copiar Desativar Dynamic Tick">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning avancado"><span aria-hidden="true">⚠</span> Ajuste avançado: pode aumentar consumo de energia ou piorar latência. Exige reinício.</p>
+      <details class="undo-block"><summary>Como desfazer este ajuste</summary><div class="code-box"><code id="command-20-undo">bcdedit /deletevalue disabledynamictick</code><button type="button" class="copy-command secondary" data-copy-target="command-20-undo">▣ &nbsp; Copiar</button></div></details>
+    </article>
+    <article class="command-card" data-command-search="restaurar configuração do platform clock bcdedit /deletevalue useplatformclock remove um valor manual da opção useplatformclock, se existir, permitindo que o windows escolha a configuração padrão. ajustes avançados — use com cautela">
+      <div class="command-card-heading"><h4>Restaurar Configuração do Platform Clock</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Remove um valor manual da opção useplatformclock, se existir, permitindo que o Windows escolha a configuração padrão.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-21">bcdedit /deletevalue useplatformclock</code><button type="button" class="copy-command" data-copy-target="command-21" aria-label="Copiar Restaurar Configuração do Platform Clock">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning avancado"><span aria-hidden="true">⚠</span> Não desativa fisicamente o HPET; se não houver valor personalizado, o comando pode informar que não há nada a remover.</p>
+    </article>
+    <article class="command-card" data-command-search="regra stopthrottling — firewall (experimental) netsh advfirewall firewall add rule name=&quot;stopthrottling&quot; dir=in action=block remoteip=173.194.55.0/24,206.111.0.0/16 enable=yes cria regra de firewall que bloqueia tráfego de entrada de determinados intervalos de ip. ajustes avançados — use com cautela">
+      <div class="command-card-heading"><h4>Regra StopThrottling — Firewall (Experimental)</h4><span class="system-chip">Windows 10 / 11</span></div>
+      <p class="command-description">Cria regra de Firewall que bloqueia tráfego de entrada de determinados intervalos de IP.</p>
+      <div class="code-meta"><span>CMD ou PowerShell</span><span>•</span><span>Administrador: Administrador</span></div>
+      <div class="code-box"><code id="command-22">netsh advfirewall firewall add rule name=&quot;StopThrottling&quot; dir=in action=block remoteip=173.194.55.0/24,206.111.0.0/16 enable=yes</code><button type="button" class="copy-command" data-copy-target="command-22" aria-label="Copiar Regra StopThrottling — Firewall (Experimental)">▣ &nbsp; Copiar comando</button></div>
+      <p class="command-warning avancado"><span aria-hidden="true">⚠</span> Não desativa o throttling do Windows. Pode bloquear conexões legítimas e não tem ganho comprovado em ping ou FPS. Evite aplicar sem necessidade.</p>
+      <details class="undo-block"><summary>Como desfazer este ajuste</summary><div class="code-box"><code id="command-22-undo">netsh advfirewall firewall delete rule name=&quot;StopThrottling&quot;</code><button type="button" class="copy-command secondary" data-copy-target="command-22-undo">▣ &nbsp; Copiar</button></div></details>
+    </article>
+</div></div>
+<p class="no-command-results" id="noCommands" hidden>Nenhum comando encontrado. Tente outro termo.</p><div class="terminal-note-bottom">As informações são orientativas. Nem todos os ajustes melhoram o desempenho, e os resultados dependem da versão do Windows e do hardware.</div>
+  </div>
+ </section>
+
+ <section id="freefire" class="feature-section">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Jogos e emuladores</span><h2>Otimizações — <span class="red">Foco Emulador Free Fire</span></h2><p>Um espaço dedicado a quem busca mais consistência, resposta e fluidez ao jogar Free Fire em emuladores de Android no PC.</p></div>
+   <div class="feature-grid">
+    <article class="feature-card"><span class="feature-symbol">▣</span><h3>Estabilidade de FPS e 1% Low</h3><p>Mais importante do que perseguir somente o FPS máximo é observar as quedas, oscilações e o comportamento dos frames durante as partidas.</p></article>
+    <article class="feature-card"><span class="feature-symbol">◈</span><h3>Configuração do emulador</h3><p>Renderizador gráfico, quantidade de núcleos, memória, resolução e limite de FPS devem ser avaliados de acordo com o hardware disponível.</p></article>
+    <article class="feature-card"><span class="feature-symbol">⌁</span><h3>Latência e responsividade</h3><p>Testes de entrada, modo de tela e estabilidade do sistema ajudam a identificar gargalos sem depender de mudanças arriscadas.</p></article>
+   </div>
+   <div class="feature-note"><strong>Conteúdo em desenvolvimento:</strong> esta seção já está disponível, e novos ajustes específicos serão incluídos após avaliação e testes. Não existe configuração que garanta a mesma quantidade de FPS em todos os computadores.</div>
+  </div>
+ </section>
+
+ <section id="dicas" class="feature-section">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">O propósito do Só o Básico</span><h2>Dicas e <span class="red">Testes</span></h2><p>Conhecimento, ferramentas e testes para melhorar a experiência de uso do computador com responsabilidade.</p></div>
+   <div class="split insights-grid">
+    <article class="panel"><span class="kicker">Windows 10 e 11 Pro</span><h3>Nosso foco principal</h3><p>O Só o Básico tem como objetivo oferecer conhecimentos, ferramentas, testes e otimizações para melhorar o desempenho, a estabilidade e a experiência de uso do computador.</p><p>Nosso foco principal é trabalhar com <strong>ISOs do Windows 10 Pro e Windows 11 Pro</strong>, explorando ajustes, configurações e otimizações para aproveitar melhor o potencial de cada máquina.</p><p>No futuro, também poderemos estudar outras edições do Windows, como as versões <strong>LTSC</strong>, conforme os testes e a viabilidade.</p></article>
+    <article class="panel"><span class="kicker">Jogos e emuladores</span><h3>Desempenho que vai além do FPS máximo</h3><p>As otimizações do Só o Básico são recomendadas para quem joga em emuladores, mas também podem trazer benefícios para jogos em geral.</p><p>Em emuladores, os resultados podem ser mais perceptíveis, tanto na estabilidade do FPS quanto na fluidez durante as partidas.</p><p><strong>O foco não é apenas aumentar o FPS máximo, mas também buscar melhorias no 1% Low</strong>, reduzindo oscilações e quedas bruscas de desempenho quando possível.</p><p>Mesmo que a diferença visual não seja tão evidente em alguns computadores, uma maior consistência dos frames pode proporcionar uma experiência mais estável e responsiva.</p></article>
+   </div>
+   <div class="feature-note"><strong>Transparência:</strong> os resultados variam conforme hardware, versão do Windows, jogo, emulador e configurações. Melhorias em FPS e 1% Low não são garantidas. Trabalhamos com testes e objetivos realistas.</div>
+  </div>
+ </section>
+
+
+ <section id="downloads">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Arquivos e ferramentas</span><h2>Downloads</h2><p>Materiais gratuitos e pagos, organizados no mesmo lugar. Cada item terá sua identificação, versão, preço e condições antes de qualquer pagamento.</p></div>
+   <div class="download-groups">
+    <div class="download-group">
+     <span class="download-label free">GRÁTIS</span>
+     <h3>Downloads gratuitos</h3>
+     <p>Arquivos liberados para baixar sem pagamento.</p>
+     <article class="download-item">
+      <div><h4>InputLag - Mouse &amp; Teclado</h4><p>Arquivo ZIP gratuito com materiais de configuração para mouse e teclado.</p></div>
+      <a class="btn primary" href="https://dktnvntfvfhcjcglaaev.supabase.co/storage/v1/object/public/produtos-gratuitos/InputLag%20-%20Mouse%20%26%20Teclado%20BY%20SO%20O%20BASICO.zip" download="InputLag - Mouse &amp; Teclado BY SO O BASICO.zip">Baixar ZIP ↧</a>
+     </article>
+     <div class="download-warning"><strong>Antes de aplicar:</strong> o ZIP contém arquivos .reg que alteram configurações do Windows. Leia as instruções e confira cada alteração; não importe arquivos que você não entenda. Considere criar um ponto de restauração e um backup antes de continuar.</div>
+    </div>
+    <div class="download-group">
+     <span class="download-label paid">PAGO</span>
+     <h3>Downloads pagos</h3>
+     <p>Arquivos com acesso liberado somente após confirmação do pagamento.</p>
+     <article class="download-item paid-item">
+      <div><span class="download-label paid">R$ 10 · POR PESSOA</span><h4>Otimizar Internet</h4><p>Arquivo ZIP com ferramenta e scripts para ajustar configurações de rede do Windows. Checkout de R$ 10 pela InfinitePay; entrega após confirmação do pagamento.</p></div>
+      <button class="btn primary" type="button" data-offer="internet">Ver detalhes e comprar ↗</button>
+     </article>
+     <div class="download-warning"><strong>Pagamento:</strong> confira os detalhes e faça login antes de prosseguir para a InfinitePay. Abrir ou cancelar o checkout não libera o arquivo. Depois do pagamento, consulte Minha biblioteca. O arquivo fica no armazenamento privado do Supabase e só é liberado após confirmação de compra.</div>
+    </div>
+   </div>
+   <div class="disclosure"><strong>Transparência antes de pagar.</strong> Antes de qualquer compra, você deverá conferir exatamente qual arquivo está adquirindo, o que ele contém, a versão, os requisitos, o preço e as condições de entrega. Nenhum pagamento deve ser feito sem essas informações.</div>
+  </div>
+ </section>
+
+
+ <section id="minha-biblioteca" aria-labelledby="libraryHeading">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Sua conta</span><h2 id="libraryHeading">Minha biblioteca</h2><p>Acompanhe suas compras e baixe os produtos liberados. O acesso é vinculado à conta utilizada no pagamento.</p></div>
+   <div class="library-panel">
+    <div class="library-toolbar">
+     <div><h3>Meus produtos</h3><p>Se você acabou de pagar, clique em Atualizar compras para conferir a liberação.</p></div>
+     <button class="btn primary" id="libraryRefresh" type="button" disabled>Atualizar compras ↻</button>
+    </div>
+    <div class="library-signin" id="librarySignIn"><p>Entre com Google ou e-mail para ver seus pedidos.</p><button class="btn small" id="libraryLogin" type="button">Entrar para ver compras</button></div>
+    <p class="library-status" id="libraryStatus" role="status" aria-live="polite"></p>
+    <article class="download-item paid-item" id="libraryProduct" hidden>
+     <div><span class="download-label paid">R$ 10 · OTIMIZAR INTERNET</span><h4>Otimizar Internet</h4><p id="libraryProductDetail"></p></div>
+     <button class="btn primary" id="libraryDownload" type="button" hidden>Baixar meu ZIP ↧</button>
+    </article>
+    <section id="adminStorageFiles" class="admin-files" hidden aria-label="Arquivos pagos para administrador">
+     <h3>Arquivos pagos — administrador</h3>
+     <p>Acesso exclusivo à sua conta: os arquivos novos do bucket <code>produtos-pagos</code> aparecem aqui ao atualizar a biblioteca, mesmo dentro de subpastas.</p>
+     <div id="adminStorageList"></div>
+    </section>
+   </div>
+   <p class="formhint" style="margin-top:12px">Os arquivos pagos não são publicados na pasta pública do site. O link de download é temporário e depende de confirmação de compra pelo Supabase.</p>
+  </div>
+ </section>
+
+ <section id="configuracao-remota">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Atendimento individual</span><h2>Configuração remota</h2><p>Precisa de ajuda para configurar ou otimizar seu computador? Converse diretamente para explicar seu caso e entender o que pode ser feito.</p></div>
+   <div class="disclosure"><strong>Antes de entrar em contato:</strong> primeiro conversaremos sobre seu computador, o serviço necessário, os objetivos possíveis, as limitações, o valor e as condições. Nenhum pagamento é feito por este botão; você só decide depois de receber e aceitar essas informações.</div>
+   <div class="grid" style="margin:22px 0">
+    <article class="card" style="border:1px solid #287cbb"><span class="kicker">OPÇÃO 1</span><h3>Otimização do Windows</h3><p>Configuração e ajustes do Windows, conforme a necessidade do computador.</p><div style="font-size:2rem;font-weight:900;color:var(--blue);margin:12px 0">R$ 50</div><span class="tag">WINDOWS</span><br><button class="btn small offer-button" type="button" data-offer="windows">Ver explicação e condições</button></article>
+    <article class="card" style="border:1px solid var(--blue);box-shadow:0 10px 32px #0879c933"><span class="kicker">OPÇÃO 2 · COMPLETA</span><h3>Windows + BIOS</h3><p>Otimização do Windows e ajustes de BIOS quando forem necessários, compatíveis e seguros para o equipamento.</p><div style="font-size:2rem;font-weight:900;color:var(--blue);margin:12px 0">R$ 80</div><span class="tag">WINDOWS + BIOS</span><br><button class="btn small offer-button" type="button" data-offer="windows-bios">Ver explicação e condições</button></article>
+   </div>
+   <p class="formhint" style="margin-top:-8px;margin-bottom:18px">O pacote com BIOS inclui R$ 30 adicionais. Alterações na BIOS só serão feitas após avaliação e autorização, quando realmente fizerem sentido para o equipamento.</p>
+   <div class="remote-panel">
+    <div><h3>Vamos avaliar seu computador?</h3><p>Fale diretamente pelo WhatsApp para explicar seu caso e combinar os próximos passos.</p></div>
+    <button class="btn primary" type="button" data-offer="consultation">Ver informações antes de conversar ↗</button>
+   </div>
+   <div class="disclosure"><strong>Nosso compromisso:</strong> antes do pagamento, definimos objetivos realistas para o seu equipamento. Se os critérios principais acordados não forem alcançados, aplica-se a <strong>devolução de 50% do valor pago</strong>, conforme as condições apresentadas e aceitas antes da contratação. FPS não é garantido em números fixos.</div>
+  </div>
+ </section>
+
+ <section id="servicos">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Otimização personalizada</span><h2>Seu computador. Sua realidade. Seu objetivo.</h2><p>Não aplicamos um pacote cego em todo mundo. Primeiro entendemos o equipamento e o que está atrapalhando.</p></div>
+   <div class="split">
+    <div class="panel"><h3>O que buscamos melhorar</h3><p>O trabalho é direcionado para entregar uma experiência mais consistente e responsiva.</p><ul class="list"><li><span class="check">✓</span><span><b>Latência:</b> reduzir atrasos desnecessários no sistema e nos jogos.</span></li><li><span class="check">✓</span><span><b>Responsividade:</b> deixar comandos e uso do sistema mais ágeis.</span></li><li><span class="check">✓</span><span><b>Estabilidade:</b> reduzir oscilações, engasgos e inconsistências.</span></li><li><span class="check">↗</span><span><b>FPS:</b> buscar ganhos quando o hardware, o jogo e a situação permitirem.</span></li></ul></div>
+    <div class="panel"><h3>Sem receita pronta</h3><p>Cada computador tem uma combinação diferente de hardware, drivers, programas e limitações. Por isso, avaliamos antes de propor qualquer serviço.</p><ul class="list"><li><span class="check">✓</span><span>Verificação do cenário atual e dos objetivos.</span></li><li><span class="check">✓</span><span>Testes e comparação antes/depois quando viável.</span></li><li><span class="check">✓</span><span>Explicação do que foi alterado e por quê.</span></li><li><span class="check">✓</span><span>Orientação para reversão de ajustes relevantes.</span></li></ul></div>
+   </div>
+   <div class="promise" style="margin-top:18px"><div><h3>Compromisso com o resultado combinado.</h3><p>Antes do pagamento, definimos objetivos realistas para o seu equipamento. Se os critérios principais acordados não forem alcançados, aplica-se a <strong>devolução de 50% do valor pago</strong>, conforme as condições apresentadas e aceitas antes da contratação. FPS não é garantido em números fixos.</p></div><a class="btn primary" href="#avaliacao">Solicitar avaliação ↗</a></div>
+  </div>
+ </section>
+
+ <section id="processo">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Transparência do começo ao fim</span><h2>Como funciona?</h2><p>Você só decide contratar depois de entender o que será feito, o que pode melhorar e quanto custa.</p></div>
+   <div class="steps">
+    <div class="step"><b>01 · Você conta</b><span>Envia as informações do PC e explica o que gostaria de melhorar.</span></div>
+    <div class="step"><b>02 · Nós avaliamos</b><span>Analisamos o cenário e verificamos se existe oportunidade real de melhoria.</span></div>
+    <div class="step"><b>03 · Você decide</b><span>Recebe escopo, metas, limitações, condições e preço antes de pagar.</span></div>
+    <div class="step"><b>04 · Trabalho e testes</b><span>Com sua aprovação, realizamos o serviço e explicamos as alterações.</span></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="avaliacao">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Primeiro passo</span><h2>Vamos conhecer seu PC?</h2><p>Preencha o que souber. Se não souber algum detalhe, pode deixar em branco. A avaliação vem antes de qualquer orçamento.</p></div>
+   <div class="split">
+    <div class="panel">
+     <h3>Envie seu cenário</h3>
+     <form id="pcForm">
+      <div class="formgrid">
+       <div class="field"><label for="name">Como podemos te chamar?</label><input id="name" name="name" placeholder="Seu nome" required></div>
+       <div class="field"><label for="contact">WhatsApp ou contato</label><input id="contact" name="contact" placeholder="(00) 00000-0000" required></div>
+       <div class="field"><label for="cpu">Processador</label><input id="cpu" name="cpu" placeholder="Ex.: Ryzen 5 5600"></div>
+       <div class="field"><label for="gpu">Placa de vídeo</label><input id="gpu" name="gpu" placeholder="Ex.: RTX 2060"></div>
+       <div class="field"><label for="ram">Memória RAM</label><input id="ram" name="ram" placeholder="Ex.: 16 GB, 3200 MHz"></div>
+       <div class="field"><label for="storage">Armazenamento</label><input id="storage" name="storage" placeholder="Ex.: SSD NVMe 1 TB"></div>
+       <div class="field"><label for="windows">Windows</label><select id="windows" name="windows"><option value="">Selecione se souber</option><option>Windows 11 25H2</option><option>Windows 11 24H2</option><option>Windows 10</option><option>Outro / Não sei</option></select></div>
+       <div class="field"><label for="service">Qual serviço você procura?</label><select id="service" name="service"><option value="Ainda não sei">Ainda não sei / Quero uma avaliação</option><option value="Otimização do Windows — R$ 50">Otimização do Windows — R$ 50</option><option value="Otimização completa: Windows + BIOS — R$ 80">Otimização completa: Windows + BIOS — R$ 80</option></select></div>
+       <div class="field"><label for="game">Jogo ou programa principal</label><input id="game" name="game" placeholder="Ex.: Free Fire, Warzone..."></div>
+       <div class="field full"><label for="goal">O que você gostaria de melhorar?</label><textarea id="goal" name="goal" placeholder="Conte sobre travamentos, latência, FPS, quedas de desempenho ou seu objetivo."></textarea></div>
+       <div class="field full"><label class="agree"><input type="checkbox" id="understand" required><span>Entendo que esta é uma solicitação de avaliação, não uma contratação. Os resultados dependem do equipamento e as metas e condições serão apresentadas antes de qualquer pagamento.</span></label></div>
+      </div>
+      <div class="form-actions"><button class="btn primary" type="submit">Preparar minha solicitação ↗</button><span class="formhint">Ao continuar, o WhatsApp abrirá com sua solicitação preenchida. Você confere e envia a mensagem.</span></div>
+      <div class="result" id="result" role="status"></div>
+     </form>
+    </div>
+    <aside class="panel">
+     <h3>Antes de contratar, uma coisa importante.</h3>
+     <p>Não estamos aqui para fazer milagres, muito menos para vender falsas promessas.</p>
+     <p>Às vezes, o computador perde desempenho por detalhes simples, configurações inadequadas ou ajustes que poderiam ser feitos de outra maneira. Mas cada equipamento tem suas limitações e nem toda otimização traz ganhos significativos.</p>
+     <p>Se o seu PC já estiver bem configurado ou se o serviço não compensar financeiramente, vamos ser sinceros. Se houver possibilidades reais de melhoria, faremos o melhor possível para aproveitar o potencial do seu equipamento.</p>
+     <div class="notice"><strong>Sem pagamento antecipado nesta etapa.</strong><br>Primeiro avaliamos. Depois explicamos o que faz sentido, quais resultados são esperados, as limitações e o valor. Você decide se quer seguir.</div>
+    </aside>
+   </div>
+  </div>
+ </section>
+ <dialog class="auth-dialog" id="authDialog" aria-labelledby="authHeading">
+  <div class="auth-content">
+   <div class="auth-title"><div><span class="kicker">ÁREA DO CLIENTE</span><h2 id="authHeading">Entre na sua conta</h2></div><button class="auth-close" id="authClose" type="button" aria-label="Fechar">×</button></div>
+   <button class="btn auth-google" id="googleLogin" type="button"><svg class="google-mark" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.76 7.18l7.73 6C44.42 37.96 46.98 31.92 46.98 24.55z"/><path fill="#FBBC05" d="M10.53 28.59A14.4 14.4 0 0 1 9.75 24c0-1.59.27-3.13.76-4.59l-7.98-6.19A23.9 23.9 0 0 0 0 24c0 3.87.93 7.52 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.91-5.8l-7.73-6c-2.14 1.44-4.89 2.3-8.18 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg> Continuar com Google</button>
+   <div class="auth-divider">ou use seu e-mail</div>
+   <form id="emailAuthForm">
+    <div class="auth-field"><label for="authEmail">E-mail</label><input id="authEmail" type="email" autocomplete="email" required placeholder="voce@exemplo.com"></div>
+    <div class="auth-field"><label for="authPassword">Senha</label><input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Mínimo de 6 caracteres"></div>
+    <div class="auth-actions"><button class="btn primary" id="emailSubmit" type="submit">Entrar com e-mail</button></div>
+   </form>
+   <p class="auth-switch" id="authSwitchText">Ainda não tem conta? <button id="toggleSignup" type="button">Criar conta</button></p>
+   <div class="auth-message" id="authMessage" role="status" aria-live="polite"></div>
+   <p class="auth-note">Ao criar uma conta, confirme seu endereço de e-mail se o sistema solicitar. Seus dados de acesso são protegidos pelo Supabase.</p>
+  </div>
+ </dialog>
+ <dialog class="offer-dialog" id="offerDialog" aria-labelledby="offerTitle">
+  <div class="dialog-content">
+   <div class="dialog-head"><div><span class="kicker" id="offerKicker">INFORMAÇÕES</span><h2 id="offerTitle">Entenda antes de decidir</h2></div><button class="dialog-close" id="dialogX" type="button" aria-label="Fechar explicação">×</button></div>
+   <div class="dialog-price" id="offerPrice"></div>
+   <p id="offerDescription"></p>
+   <div class="notice" id="offerConditions"></div>
+   <div class="offer-timing" id="offerTiming" hidden><strong>⏱ Prazo estimado do serviço</strong><p>Trabalhamos para realizar cada otimização o mais rápido possível, priorizando qualidade e estabilidade. Em condições normais, sem erros ou imprevistos, o serviço geralmente é concluído em até 1 hora. O prazo varia principalmente conforme a velocidade e a estabilidade da internet do cliente, além das condições do computador e dos ajustes necessários; não é um prazo garantido.</p></div>
+   <div class="form-actions"><button class="btn primary" id="offerCheckout" type="button" hidden>Comprar por R$ 10 na InfinitePay ↗</button><a class="btn primary" id="offerWhatsApp" href="https://wa.me/qr/LSTNS7FFZLMRB1" target="_blank" rel="noopener noreferrer">Conversar pelo WhatsApp — sem contratar ↗</a><button class="btn" id="dialogClose" type="button">Fechar</button></div>
+   <p class="formhint" id="offerPaymentInfo">Para os serviços, você conversa e combina as condições antes de contratar.</p><p class="auth-message" id="checkoutMessage" role="status" aria-live="polite"></p>
+  </div>
+ </dialog>
+</main>
+<footer><div class="wrap foot"><div><b>SÓ O BÁSICO.</b><br><span>O básico que funciona!</span></div><div>Conhecimento acessível. Otimização responsável.<br>© <span id="year"></span> SÓ O BÁSICO.</div></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// Configure com a URL e a chave PUBLICÁVEL (anon/publishable) do seu projeto Supabase.
+// Nunca coloque aqui a service_role key ou qualquer segredo privado.
+const SUPABASE_URL = 'https://dktnvntfvfhcjcglaaev.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_CnPCEZGhfX0nLDsrQauBzw_ABowsj0o';
+const authDialog = document.getElementById('authDialog');
+const authMessage = document.getElementById('authMessage');
+const authStatus = document.getElementById('authStatus');
+const authOpenButton = document.getElementById('openAuth');
+let isSignup = false;
+let supabaseClient = null;
+let libraryLoadedForUser = null;
+let libraryRequestNumber = 0;
+let hasPaidInternet = false;
+if (window.supabase && SUPABASE_ANON_KEY.startsWith('sb_publishable_')) {
+  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+}
+function showAuthMessage(message, isError=false) {
+  authMessage.textContent = message;
+  authMessage.classList.toggle('error', isError);
+  authMessage.style.display = 'block';
+}
+function setAuthMode(signup) {
+  isSignup = signup;
+  document.getElementById('authHeading').textContent = signup ? 'Crie sua conta' : 'Entre na sua conta';
+  document.getElementById('emailSubmit').textContent = signup ? 'Criar conta' : 'Entrar com e-mail';
+  document.getElementById('authPassword').autocomplete = signup ? 'new-password' : 'current-password';
+  document.getElementById('authSwitchText').innerHTML = signup
+    ? 'Já tem uma conta? <button id="toggleSignup" type="button">Entrar</button>'
+    : 'Ainda não tem conta? <button id="toggleSignup" type="button">Criar conta</button>';
+  document.getElementById('toggleSignup').addEventListener('click', () => { setAuthMode(!isSignup); authMessage.style.display='none'; });
+}
+function openAuthDialog() {
+  authMessage.style.display='none';
+  if (!supabaseClient) showAuthMessage('Falta configurar a chave publicável do Supabase neste index.html antes de ativar o login.', true);
+  authDialog.showModal();
+}
+authOpenButton.onclick = openAuthDialog;
+document.getElementById('authClose').addEventListener('click', () => authDialog.close());
+authDialog.addEventListener('click', e => { if(e.target===authDialog) authDialog.close(); });
+setAuthMode(false);
+document.getElementById('googleLogin').addEventListener('click', async () => {
+  if (!supabaseClient) return showAuthMessage('Configure primeiro a chave publicável do Supabase no arquivo.', true);
+  const { error } = await supabaseClient.auth.signInWithOAuth({ provider:'google', options:{ redirectTo: window.location.origin + window.location.pathname } });
+  if (error) showAuthMessage(error.message, true);
+});
+document.getElementById('emailAuthForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  if (!supabaseClient) return showAuthMessage('Configure primeiro a chave publicável do Supabase no arquivo.', true);
+  const email=document.getElementById('authEmail').value.trim();
+  const password=document.getElementById('authPassword').value;
+  const result = isSignup
+    ? await supabaseClient.auth.signUp({ email, password, options:{ emailRedirectTo: window.location.origin + window.location.pathname } })
+    : await supabaseClient.auth.signInWithPassword({ email, password });
+  if (result.error) return showAuthMessage(result.error.message, true);
+  if (isSignup && !result.data.session) showAuthMessage('Conta criada! Confira seu e-mail para confirmar o cadastro antes de entrar.');
+  else { showAuthMessage('Login realizado com sucesso!'); await refreshAuthState(); setTimeout(()=>authDialog.close(),900); }
+});
+function updateAuthUi(session) {
+  if (session?.user) {
+    const label = session.user.user_metadata?.full_name || session.user.email || 'Conta conectada';
+    authStatus.textContent = label;
+    if (libraryLoadedForUser !== session.user.id) {
+      ++libraryRequestNumber;
+      hasPaidInternet = false;
+      document.getElementById('libraryProduct').hidden = true;
+      document.getElementById('libraryDownload').hidden = true;
+      document.getElementById('adminStorageFiles').hidden = true;
+      document.getElementById('adminStorageList').replaceChildren();
+    }
+    document.getElementById('librarySignIn').hidden = true;
+    document.getElementById('libraryRefresh').disabled = false;
+    if (libraryLoadedForUser !== session.user.id) {
+      libraryLoadedForUser = session.user.id;
+      // Não chame operações do Supabase sincronamente dentro de onAuthStateChange.
+      setTimeout(() => loadLibrary(), 0);
+    }
+    authOpenButton.textContent = 'Sair';
+    authOpenButton.onclick = async () => {
+      await supabaseClient.auth.signOut();
+      updateAuthUi(null);
+    };
+  } else {
+    authStatus.textContent = '';
+    libraryLoadedForUser = null;
+    ++libraryRequestNumber;
+    hasPaidInternet = false;
+    document.getElementById('librarySignIn').hidden = false;
+    document.getElementById('libraryProduct').hidden = true;
+    document.getElementById('libraryDownload').hidden = true;
+    document.getElementById('adminStorageFiles').hidden = true;
+    document.getElementById('adminStorageList').replaceChildren();
+    document.getElementById('libraryStatus').textContent = '';
+    document.getElementById('libraryRefresh').disabled = true;
+    authOpenButton.textContent = 'Entrar';
+    authOpenButton.onclick = openAuthDialog;
+  }
+}
+async function refreshAuthState() {
+  if (!supabaseClient) return;
+  const { data: { session } } = await supabaseClient.auth.getSession();
+  updateAuthUi(session);
+}
+if (supabaseClient) {
+  supabaseClient.auth.onAuthStateChange((_event, session) => updateAuthUi(session));
+  refreshAuthState();
+}
+
+// Biblioteca: os pedidos só são consultados por uma função que valida a sessão no servidor.
+const libraryRefreshButton = document.getElementById('libraryRefresh');
+const libraryDownloadButton = document.getElementById('libraryDownload');
+const libraryProduct = document.getElementById('libraryProduct');
+const libraryDetail = document.getElementById('libraryProductDetail');
+const libraryStatus = document.getElementById('libraryStatus');
+const adminStorageFiles = document.getElementById('adminStorageFiles');
+const adminStorageList = document.getElementById('adminStorageList');
+// Nunca usar innerHTML para nomes de arquivos fornecidos pelo Storage.
+function renderAdminFiles(files) {
+  adminStorageList.replaceChildren();
+  for (const file of files) {
+    if (!file || typeof file.name !== 'string' || typeof file.path !== 'string') continue;
+    const row = document.createElement('article');
+    row.className = 'download-item paid-item admin-file-row';
+    const details = document.createElement('div');
+    const title = document.createElement('h4');
+    title.textContent = file.name;
+    const path = document.createElement('p');
+    path.className = 'admin-file-path';
+    path.textContent = file.path;
+    details.append(title, path);
+    const button = document.createElement('button');
+    button.className = 'btn primary';
+    button.type = 'button';
+    button.textContent = 'Baixar ↧';
+    button.addEventListener('click', async () => {
+      if (button.disabled) return;
+      button.disabled = true;
+      displayLibraryStatus('Gerando link temporário para ' + file.name + '...');
+      try {
+        const result = await libraryFunction({action:'download',file_path:file.path});
+        if (typeof result?.download_url !== 'string' ||
+            !result.download_url.startsWith(SUPABASE_URL + '/storage/v1/')) {
+          throw new Error('Link de download inválido.');
+        }
+        displayLibraryStatus('Download autorizado: ' + file.name);
+        window.location.assign(result.download_url);
+      } catch (err) {
+        displayLibraryStatus(err instanceof Error ? err.message : 'Falha ao baixar arquivo.');
+      } finally { button.disabled = false; }
+    });
+    row.append(details, button);
+    adminStorageList.append(row);
+  }
+  if (!adminStorageList.childElementCount) {
+    const empty = document.createElement('p');
+    empty.textContent = 'Ainda não há arquivos no bucket produtos-pagos.';
+    adminStorageList.append(empty);
+  }
+}
+
+function displayLibraryStatus(message) { libraryStatus.textContent = message; }
+async function libraryFunction(body) {
+  if (!supabaseClient) throw new Error('Supabase indisponível. Atualize a página.');
+  const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
+  if (sessionError || !session?.access_token) throw new Error('Faça login para acessar sua biblioteca.');
+  const {data,error} = await supabaseClient.functions.invoke('minha-biblioteca', {body});
+  if (error) {
+    let detail = 'Não foi possível consultar sua biblioteca. Verifique se a função minha-biblioteca está publicada.';
+    if (error.context && typeof error.context.json === 'function') {
+      try { const payload = await error.context.json(); if (typeof payload?.error === 'string') detail = payload.error; } catch(_) {}
+    }
+    throw new Error(detail);
+  }
+  return data;
+}
+async function loadLibrary() {
+  const requestId = ++libraryRequestNumber;
+  libraryRefreshButton.disabled = true;
+  libraryProduct.hidden = true;
+  libraryDownloadButton.hidden = true;
+  hasPaidInternet = false;
+  adminStorageFiles.hidden = true;
+  adminStorageList.replaceChildren();
+  displayLibraryStatus('Consultando seus pedidos...');
+  try {
+    const data = await libraryFunction({action:'list'});
+    if (requestId !== libraryRequestNumber) return;
+    const orders = Array.isArray(data?.purchases) ? data.purchases : [];
+    const owned = orders.filter(p => p?.product_id === 'otimizar-internet-10');
+    const adminAccess = data?.admin_access === true;
+    if (adminAccess) {
+      renderAdminFiles(Array.isArray(data?.admin_files) ? data.admin_files : []);
+      adminStorageFiles.hidden = false;
+    }
+    const paid = adminAccess || owned.some(p => p.status === 'paid');
+    const pending = owned.some(p => p.status === 'pending');
+    if (paid) {
+      hasPaidInternet = true;
+      libraryProduct.hidden = false;
+      libraryDownloadButton.hidden = false;
+      libraryDetail.textContent = adminAccess
+        ? 'Acesso de administrador. Você pode testar este download sem realizar pagamento.'
+        : 'Pagamento confirmado. Clique para gerar um link temporário de download.';
+      displayLibraryStatus(adminAccess
+        ? 'Conta de administrador reconhecida pelo servidor. O download está liberado para testes.'
+        : 'Sua compra foi reconhecida. O ZIP pode ser baixado quando estiver disponível no armazenamento privado.');
+    } else if (pending) {
+      libraryProduct.hidden = false;
+      libraryDetail.textContent = 'Pagamento ainda não confirmado. Se acabou de pagar, clique em Atualizar compras.';
+      displayLibraryStatus('Há um pedido aguardando confirmação.');
+    } else {
+      displayLibraryStatus('Você ainda não possui pedidos desse produto nesta conta.');
+    }
+  } catch(err) {
+    if (requestId === libraryRequestNumber) displayLibraryStatus(err instanceof Error ? err.message : 'Não foi possível consultar sua biblioteca.');
+  } finally {
+    if (requestId === libraryRequestNumber) libraryRefreshButton.disabled = false;
+  }
+}
+libraryRefreshButton.addEventListener('click', loadLibrary);
+document.getElementById('libraryLogin').addEventListener('click', openAuthDialog);
+libraryDownloadButton.addEventListener('click', async () => {
+  if (!hasPaidInternet || libraryDownloadButton.disabled) return;
+  libraryDownloadButton.disabled = true;
+  displayLibraryStatus('Preparando download protegido...');
+  try {
+    const data = await libraryFunction({action:'download',product_id:'otimizar-internet-10'});
+    if (typeof data?.download_url !== 'string' || !data.download_url.startsWith(SUPABASE_URL + '/storage/v1/')) {
+      throw new Error('Link de download inválido.');
+    }
+    displayLibraryStatus('Link liberado. O download deve começar agora.');
+    window.location.assign(data.download_url);
+  } catch(err) {
+    displayLibraryStatus(err instanceof Error ? err.message : 'Falha ao liberar download.');
+  } finally {
+    libraryDownloadButton.disabled = false;
+  }
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+const offers = {
+ windows: {
+  title:'Otimização do Windows',
+  price:'R$ 50',
+  description:'Configuração e ajustes do Windows definidos após avaliar o computador e o objetivo que você quer alcançar.',
+  conditions:'Antes de qualquer contratação, conversaremos sobre seu equipamento, o que será feito, os resultados possíveis e as limitações. Não há garantia de FPS fixo. Se os critérios principais combinados não forem alcançados, aplica-se a devolução de 50% do valor pago, conforme as condições apresentadas e aceitas antes da contratação.'
+ },
+ 'windows-bios': {
+  title:'Otimização do Windows + BIOS',
+  price:'R$ 80',
+  description:'Inclui a otimização do Windows e pode incluir ajustes de BIOS quando forem necessários para o caso e compatíveis com o equipamento.',
+  conditions:'O pacote adiciona R$ 30 ao serviço de Windows. Nenhuma mudança de BIOS será feita sem avaliação e autorização. Antes de decidir, você conhecerá o escopo, os resultados possíveis, as limitações e as condições. Não há garantia de FPS fixo; aplica-se a condição de devolução de 50% nos critérios acordados, conforme explicado antes da contratação.'
+ },
+ consultation: {
+  title:'Conversa e avaliação',
+  price:'Sem cobrança nesta etapa',
+  description:'O primeiro contato serve para entender seu computador, seu objetivo e qual serviço, se houver, faz sentido para o seu caso.',
+  conditions:'Você receberá a explicação do escopo, dos resultados possíveis, das limitações, do preço e das condições antes de decidir. Este botão não contrata nem cobra; nenhuma decisão é exigida durante o primeiro contato.',
+  buttonText:'Conversar pelo WhatsApp — sem contratar ↗'
+ },
+ internet: {
+  title:'Otimizar Internet',
+  price:'R$ 10 por pessoa',
+  description:'Arquivo ZIP com o TCPOptimizer.exe, scripts para aplicar e redefinir configurações de rede do Windows e um arquivo de backup de configurações.',
+  conditions:'Ao clicar em Comprar, você será direcionado à InfinitePay para pagar R$ 10. Abrir ou fechar o checkout não confirma a compra. Após pagamento confirmado, consulte Minha biblioteca para baixar após a confirmação do pagamento. Caso não esteja disponível, contate o suporte. O pacote contém um script que exige privilégios de administrador e altera TCP/IP, Registro e adaptadores de rede; a redefinição pode não restaurar todas as configurações anteriores. Leia os arquivos e faça backup antes de executar. Não há garantia de redução de ping.',
+  buttonText:'Ajuda pelo WhatsApp ↗'
+ }
+};
+const offerDialog=document.getElementById('offerDialog');
+const checkoutButton=document.getElementById('offerCheckout');
+const checkoutMessage=document.getElementById('checkoutMessage');
+let activeOffer = null;
+function setCheckoutMessage(message, isError=false) {
+  checkoutMessage.textContent=message;
+  checkoutMessage.classList.toggle('error',isError);
+  checkoutMessage.style.display=message ? 'block' : 'none';
+}
+checkoutButton.addEventListener('click',async () => {
+  if (activeOffer !== 'internet' || checkoutButton.disabled) return;
+  if (!supabaseClient) return setCheckoutMessage('Não foi possível carregar o login. Atualize a página e confira sua conexão.',true);
+  const {data:{session},error:sessionError}=await supabaseClient.auth.getSession();
+  if(sessionError || !session?.access_token) {
+    offerDialog.close();
+    openAuthDialog();
+    showAuthMessage('Entre com Google ou e-mail para comprar. Depois, abra os detalhes de Otimizar Internet e clique em Comprar.');
+    return;
+  }
+  checkoutButton.disabled=true;
+  checkoutButton.textContent='Gerando link seguro...';
+  setCheckoutMessage('Solicitando seu checkout à InfinitePay...');
+  try {
+    // A sessão do Supabase é enviada automaticamente pela biblioteca.
+    const {data,error}=await supabaseClient.functions.invoke('create-checkout',{body:{}});
+    if(error) {
+      let detail='Não foi possível gerar o link de pagamento.';
+      if(error.context && typeof error.context.json==='function') {
+        try { const response=await error.context.json(); detail=response.error||detail; } catch(_) {}
+      }
+      throw new Error(detail);
+    }
+    const checkoutUrl=data?.checkout_url;
+    if(typeof checkoutUrl!=='string' || !checkoutUrl.startsWith('https://'))
+      throw new Error('O Supabase não retornou um endereço de pagamento válido.');
+    setCheckoutMessage('Link criado! Abrindo o checkout da InfinitePay...');
+    window.location.assign(checkoutUrl);
+  } catch(err) {
+    setCheckoutMessage((err instanceof Error ? err.message : 'Não foi possível iniciar o pagamento.')+' Nenhuma compra foi confirmada.',true);
+  } finally {
+    checkoutButton.disabled=false;
+    checkoutButton.textContent='Comprar por R$ 10 na InfinitePay ↗';
+  }
+});
+document.querySelectorAll('[data-offer]').forEach(function(button){
+ button.addEventListener('click',function(){
+  const offer=offers[button.dataset.offer];
+  if(!offer)return;
+  document.getElementById('offerTitle').textContent=offer.title;
+  document.getElementById('offerPrice').textContent=offer.price;
+  document.getElementById('offerDescription').textContent=offer.description;
+  document.getElementById('offerConditions').textContent=offer.conditions;
+  activeOffer=button.dataset.offer;
+  document.getElementById('offerTiming').hidden = !(activeOffer==='windows' || activeOffer==='windows-bios');
+  const buying=activeOffer==='internet';
+  checkoutButton.hidden=!buying;
+  document.getElementById('offerWhatsApp').textContent=offer.buttonText || 'Conversar pelo WhatsApp — sem contratar ↗';
+  document.getElementById('offerPaymentInfo').textContent=buying
+    ? 'O pagamento é feito na InfinitePay. Se sair sem pagar, o produto não será liberado. Depois de pagar, volte ao site e abra Minha biblioteca. Se o arquivo ainda não estiver disponível, contate o suporte.'
+    : 'Este botão é apenas para conversar; nenhum serviço é cobrado automaticamente.';
+  setCheckoutMessage('');
+  offerDialog.showModal();
+ });
+});
+document.getElementById('dialogX').addEventListener('click',function(){offerDialog.close();});
+document.getElementById('dialogClose').addEventListener('click',function(){offerDialog.close();});
+offerDialog.addEventListener('click',function(event){if(event.target===offerDialog)offerDialog.close();});
+document.getElementById('pcForm').addEventListener('submit', function(e){
+ e.preventDefault();
+ if (!this.reportValidity()) return;
+ const data = new FormData(this);
+ const labels = {name:'Nome',contact:'Contato',service:'Serviço de interesse',cpu:'Processador',gpu:'Placa de vídeo',ram:'Memória RAM',storage:'Armazenamento',windows:'Windows',game:'Jogo/programa principal',goal:'Objetivo'};
+ const lines = ['Olá! Gostaria de solicitar uma avaliação — SÓ O BÁSICO.',''];
+ for (const [key,label] of Object.entries(labels)) {
+  const value = (data.get(key) || '').toString().trim();
+  lines.push(label + ': ' + (value || 'Não informado'));
+ }
+   if (/R\$ (50|80)/.test((data.get('service') || '').toString())) {
+    lines.push('', 'Prazo estimado informado: normalmente até 1 hora em condições sem erros ou imprevistos; depende da velocidade/estabilidade da internet e do computador, sem garantia de prazo fixo.');
+  }
+lines.push('', 'Entendo que esta é uma solicitação de avaliação e que o serviço, os limites e as condições serão confirmados antes de qualquer pagamento.');
+ const message = encodeURIComponent(lines.join('\n'));
+ const whatsappUrl = 'https://wa.me/5537991095648?text=' + message;
+ const result = document.getElementById('result');
+ result.style.display='block';
+ result.textContent='Sua solicitação está pronta. O WhatsApp será aberto com os dados preenchidos. Confira a mensagem e toque em Enviar para falar comigo.';
+ const link = document.createElement('a');
+ link.className='btn primary';
+ link.href=whatsappUrl;
+ link.target='_blank';
+ link.rel='noopener noreferrer';
+ link.textContent='Abrir WhatsApp e enviar solicitação ↗';
+ link.style.marginTop='12px';
+ result.appendChild(document.createElement('br'));
+ result.appendChild(link);
+ window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+});
+
+// Navegação responsiva; mantém os IDs antigos de autenticação e checkout.
+const navToggle = document.getElementById('navToggle');
+const primaryNav = document.getElementById('primaryNav');
+if (navToggle && primaryNav) {
+ navToggle.addEventListener('click', () => {
+   const opened = primaryNav.classList.toggle('open');
+   navToggle.setAttribute('aria-expanded', String(opened));
+   navToggle.setAttribute('aria-label', opened ? 'Fechar menu' : 'Abrir menu');
+ });
+ primaryNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+   primaryNav.classList.remove('open'); navToggle.setAttribute('aria-expanded', 'false');
+   navToggle.setAttribute('aria-label', 'Abrir menu');
+ }));
+}
+// Botões de copiar: copia exatamente o código, nunca executa comandos no navegador.
+async function copyScriptText(text) {
+ if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(text); return; }
+ const tmp = document.createElement('textarea');
+ tmp.value = text; tmp.setAttribute('readonly','');
+ tmp.style.position='fixed'; tmp.style.top='-1000px';
+ document.body.appendChild(tmp); tmp.select();
+ const ok = document.execCommand('copy'); tmp.remove();
+ if (!ok) throw new Error('Não foi possível copiar automaticamente.');
+}
+document.querySelectorAll('[data-copy-target]').forEach(button => {
+ button.addEventListener('click', async () => {
+   const code = document.getElementById(button.dataset.copyTarget);
+   if (!code) return;
+   const original = button.textContent;
+   try { await copyScriptText(code.textContent.trim()); button.textContent = '✓ Copiado!'; button.classList.add('copied'); }
+   catch (error) { button.textContent = 'Copie manualmente'; }
+   window.setTimeout(() => { button.textContent = original; button.classList.remove('copied'); }, 2100);
+ });
+});
+const commandSearch = document.getElementById('commandSearch');
+const commandCount = document.getElementById('commandCount');
+function updateCommandSearch() {
+ const text = (commandSearch?.value || '').toLocaleLowerCase('pt-BR').trim();
+ let visible = 0;
+ document.querySelectorAll('.command-category').forEach(category => {
+   let inCategory = 0;
+   category.querySelectorAll('.command-card').forEach(card => {
+     const match = !text || card.dataset.commandSearch.includes(text);
+     card.hidden = !match;
+     if (match) {visible++;inCategory++;}
+   });
+   category.hidden = inCategory === 0;
+ });
+ commandCount.textContent = visible + (visible===1 ? ' comando' : ' comandos');
+ document.getElementById('noCommands').hidden = visible > 0;
+}
+if (commandSearch) {commandSearch.addEventListener('input', updateCommandSearch);updateCommandSearch();}
+</script>
+</body>
+</html>
