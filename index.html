@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d15">
+<meta name="description" content="SÓ O BÁSICO — conhecimento, ferramentas e otimização de computadores sem complicação.">
+<title>SÓ O BÁSICO — O básico que funciona!</title>
+<style>
+:root{--bg:#080d15;--panel:#101925;--panel2:#142131;--line:#243449;--blue:#20a9ff;--blue2:#0879c9;--text:#edf5ff;--muted:#a6b4c5;--green:#68d6a3;--radius:18px;--max:1160px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#102d48 0,transparent 35%),var(--bg);color:var(--text);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}[hidden]{display:none!important}.btn:disabled{opacity:.65;cursor:wait;transform:none}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+header{position:sticky;top:0;z-index:10;background:#080d15eF;backdrop-filter:blur(14px);border-bottom:1px solid #1c2b3b}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-size:1.18rem;font-weight:950;letter-spacing:-.06em}.brand b{color:var(--blue)}.navlinks{display:flex;gap:24px;color:#c1cedc;font-size:.92rem}.navlinks a:hover{color:var(--blue)}.navright{display:flex;gap:10px;align-items:center}.auth-status{font-size:.82rem;color:#9fb2c7;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 18px;border:1px solid var(--line);border-radius:12px;color:var(--text);font-weight:750;background:#111c29;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px);border-color:var(--blue)}.btn.primary{background:linear-gradient(135deg,#168fe0,#086bb7);border-color:#168fe0;color:white;box-shadow:0 8px 28px #0879c933}.btn.small{padding:9px 13px;font-size:.88rem}
+.hero{padding:86px 0 70px;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#78caff;background:#0d2438;border:1px solid #17466a;padding:6px 11px;border-radius:999px;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px var(--blue)}
+h1{font-size:clamp(2.8rem,6vw,5.4rem);line-height:.98;letter-spacing:-.075em;margin:22px 0}.blue{color:var(--blue)}.lead{font-size:1.13rem;color:#b6c5d5;max-width:600px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 22px}.micro{color:#8496a9;font-size:.86rem}.hero-art{min-height:390px;position:relative;border:1px solid #1d3a53;border-radius:26px;overflow:hidden;background:linear-gradient(145deg,#10283c,#0a111c 65%);display:flex;align-items:center;justify-content:center}.hero-art:before,.hero-art:after{content:"";position:absolute;border-radius:50%;filter:blur(2px)}.hero-art:before{width:280px;height:280px;background:#0879c933;top:-70px;right:-40px}.hero-art:after{width:220px;height:220px;background:#20a9ff20;bottom:-80px;left:-30px}
+.monitor{position:relative;z-index:1;width:76%;padding:14px;border:1px solid #42627e;border-radius:14px;background:#08111c;box-shadow:0 25px 70px #0009;transform:perspective(900px) rotateY(-7deg) rotateX(3deg)}.screen{border-radius:8px;background:linear-gradient(135deg,#0b1b2b,#102d47);padding:25px;min-height:205px}.screen-logo{font-size:2rem;font-weight:950;letter-spacing:-.08em}.screen-logo span{color:var(--blue)}.screen-line{height:7px;border-radius:10px;background:#24435c;margin:13px 0;width:75%}.screen-line.short{width:46%}.screen-bars{display:flex;gap:7px;align-items:end;height:65px;margin-top:22px}.screen-bars i{display:block;flex:1;border-radius:4px 4px 0 0;background:linear-gradient(#20a9ff,#0879c9);height:var(--h)}.monitor-stand{height:28px;width:35%;margin:auto;background:#172a3b;clip-path:polygon(35% 0,65% 0,75% 100%,25% 100%)}.monitor-foot{height:8px;width:48%;margin:auto;background:#243c51;border-radius:50%}
+section{padding:66px 0}.section-head{max-width:700px;margin-bottom:30px}.kicker{color:var(--blue);font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;font-weight:900}.section-head h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.055em;line-height:1.08;margin:9px 0 12px}.section-head p{color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{background:linear-gradient(145deg,#111d2a,#0d1520);border:1px solid var(--line);border-radius:var(--radius);padding:22px;min-height:190px;transition:.2s}.card:hover{transform:translateY(-4px);border-color:#267db4}.ico{width:43px;height:43px;border-radius:13px;background:#0d2a42;color:#52bdff;display:grid;place-items:center;font-size:1.3rem;margin-bottom:20px}.card h3{margin:0 0 7px;font-size:1.12rem}.card p{margin:0;color:var(--muted);font-size:.92rem}.tag{display:inline-block;margin-top:15px;color:#7fcaff;font-size:.76rem;font-weight:800}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}.panel{background:linear-gradient(145deg,#111d2a,#0d1520);border:1px solid var(--line);border-radius:22px;padding:28px}.panel h3{font-size:1.45rem;letter-spacing:-.04em;margin:0 0 10px}.panel p{color:var(--muted)}.list{padding:0;list-style:none;margin:20px 0 0}.list li{display:flex;gap:11px;margin:12px 0;color:#d5e1ed}.check{color:var(--green);font-weight:900}
+.promise{border:1px solid #18517a;background:linear-gradient(120deg,#0e263a,#101a28);border-radius:22px;padding:28px;display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center}.promise h3{margin:0 0 8px;font-size:1.5rem}.promise p{margin:0;color:#b8c7d6}.promise strong{color:#fff}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{border-top:2px solid #1d79b6;padding:17px 16px;background:#101925;border-radius:0 0 14px 14px}.step b{display:block;margin-bottom:7px}.step span{font-size:.9rem;color:var(--muted)}
+.notice{padding:22px;border:1px solid #34465a;border-radius:16px;background:#0e1722;color:#b8c6d5}.notice strong{color:white}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:.87rem;color:#cbd8e5;font-weight:700}.field input,.field select,.field textarea{width:100%;background:#080f18;border:1px solid #2a3c50;border-radius:10px;color:#edf5ff;padding:12px;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #20a9ff1a}.field textarea{min-height:100px;resize:vertical}.agree{display:flex;gap:10px;align-items:flex-start;color:#b8c6d5;font-size:.88rem}.agree input{margin-top:5px;accent-color:var(--blue)}.form-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:18px}.formhint{font-size:.82rem;color:#8fa1b4}.result{display:none;margin-top:18px;padding:16px;border:1px solid #287c55;background:#0e241d;border-radius:12px;color:#c7f4dd;white-space:pre-wrap}
+footer{border-top:1px solid #1c2b3b;padding:30px 0 45px;color:#8fa1b4}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot b{color:#eaf4ff}
+.mobile{display:none}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:28px;padding-top:60px}.hero-art{min-height:310px}.grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.auth-status{display:none}.wrap{width:min(var(--max),calc(100% - 28px))}.nav{height:66px}.navlinks{display:none}.mobile{display:inline-flex}.navright .btn:not(.primary):not(#openAuth){display:none}.hero{padding:48px 0 42px}.hero-art{min-height:260px}.screen{padding:18px;min-height:165px}.screen-logo{font-size:1.5rem}.grid,.split,.steps,.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}section{padding:48px 0}.promise{grid-template-columns:1fr}.card{min-height:unset}}
+
+/* Novas áreas: downloads e configuração remota */
+.download-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.download-group{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.download-group h3{margin:0 0 6px;font-size:1.2rem}
+.download-group>p{margin:0 0 16px;color:var(--muted)}
+.download-empty{border:1px dashed #38506a;border-radius:13px;padding:18px;color:var(--muted);background:#0c1520}
+.download-item{display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid #28543f;border-radius:13px;padding:18px;background:#0c1a18}
+.download-item.paid-item{border-color:#66512c;background:#1b1710}
+.download-item h4{margin:0 0 5px;font-size:1.05rem}
+.download-item p{margin:0;color:var(--muted);font-size:.9rem}
+.download-item .btn{flex-shrink:0}
+.download-warning{margin-top:12px;padding:13px;border:1px solid #66512c;border-radius:12px;background:#211b10;color:#e8d8b5;font-size:.85rem}
+.download-label{display:inline-flex;align-items:center;border-radius:999px;padding:4px 10px;font-size:.76rem;font-weight:800;letter-spacing:.04em;margin-bottom:12px}
+.download-label.free{background:#123b30;color:#8ce4bd}
+.download-label.paid{background:#3b2d16;color:#ffd58a}
+.remote-panel{display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(135deg,#102b42,#101925);border:1px solid #245071;border-radius:var(--radius);padding:26px}
+.remote-panel h3{margin:0 0 8px}.remote-panel p{margin:0;color:var(--muted)}
+.disclosure{margin-top:18px;padding:18px;border:1px solid #3b5269;border-radius:14px;background:#0c1520;color:var(--muted)}
+.disclosure strong{color:var(--text)}
+.offer-button{margin-top:18px}
+.offer-dialog{width:min(620px,calc(100% - 28px));max-height:calc(100% - 28px);padding:0;border:1px solid #287cbb;border-radius:20px;background:#101925;color:var(--text);box-shadow:0 24px 80px #000b}
+.offer-dialog::backdrop{background:#03070cd9;backdrop-filter:blur(3px)}
+.dialog-content{padding:26px}
+.dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.dialog-head h2{margin:6px 0 0;font-size:clamp(1.5rem,5vw,2rem);line-height:1.15}
+.dialog-close{width:40px;height:40px;flex:0 0 40px;border:1px solid var(--line);border-radius:10px;background:#111c29;color:var(--text);font-size:1.4rem;cursor:pointer}
+.dialog-price{margin:18px 0;color:var(--blue);font-size:1.8rem;font-weight:900}
+.dialog-content>p{color:var(--muted)}
+.dialog-content .notice{margin-top:16px}
+.dialog-content .form-actions{margin-top:20px}
+@media(max-width:760px){.download-groups{grid-template-columns:1fr}.remote-panel{align-items:flex-start;flex-direction:column}.navlinks{gap:12px;flex-wrap:wrap}.nav{height:auto;min-height:76px;padding-top:12px;padding-bottom:12px}}
+@media(max-width:520px){.navright .btn.primary{display:none}.download-item{align-items:flex-start;flex-direction:column}.download-item .btn{width:100%}.dialog-content{padding:20px}}
+
+
+.auth-dialog{width:min(480px,calc(100% - 28px));max-height:calc(100% - 28px);padding:0;border:1px solid #287cbb;border-radius:20px;background:#101925;color:var(--text);box-shadow:0 24px 80px #000b}
+.auth-dialog::backdrop{background:#03070cdd;backdrop-filter:blur(3px)}
+.auth-content{padding:25px}.auth-title{display:flex;justify-content:space-between;align-items:flex-start;gap:15px}.auth-title h2{margin:5px 0 14px;font-size:1.6rem;letter-spacing:-.04em}.auth-close{width:38px;height:38px;border:1px solid var(--line);border-radius:10px;background:#111c29;color:var(--text);font-size:1.35rem;cursor:pointer}
+.auth-google{width:100%;background:#fff;color:#202124;border-color:#dadce0;margin:5px 0 15px}.auth-google:hover{border-color:#9aa0a6}.google-mark{width:19px;height:19px;display:inline-block;flex:0 0 19px}
+.auth-divider{display:flex;align-items:center;gap:12px;color:#8193a7;font-size:.82rem;margin:10px 0}.auth-divider:before,.auth-divider:after{content:"";height:1px;background:#2a3c50;flex:1}
+.auth-field{display:flex;flex-direction:column;gap:6px;margin:12px 0}.auth-field label{font-size:.87rem;color:#cbd8e5;font-weight:700}.auth-field input{width:100%;background:#080f18;border:1px solid #2a3c50;border-radius:10px;color:#edf5ff;padding:12px;outline:none}.auth-field input:focus{border-color:var(--blue)}
+.auth-message{display:none;margin:12px 0;padding:11px 13px;border-radius:10px;background:#102b42;border:1px solid #245071;color:#cceaff;font-size:.88rem}.auth-message.error{background:#321b1d;border-color:#784044;color:#ffd5d5}.auth-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.auth-actions .btn{flex:1}.auth-switch{color:#a6b4c5;font-size:.88rem;text-align:center;margin:15px 0 0}.auth-switch button{border:0;background:none;color:#65c1ff;font-weight:800;cursor:pointer}.auth-note{font-size:.78rem;color:#8496a9;margin:13px 0 0}
+
+
+/* Biblioteca privada de compras */
+.library-panel{background:linear-gradient(145deg,#111d2a,#0d1520);border:1px solid #26577a;border-radius:var(--radius);padding:24px}
+.library-toolbar{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+.library-toolbar h3{margin:0 0 5px;font-size:1.3rem}.library-toolbar p{margin:0;color:var(--muted);font-size:.92rem}
+.library-signin{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.library-signin p{margin:0;color:var(--muted)}
+.library-status{color:#a7c8e6;margin:10px 0}.library-status:empty{display:none}
+#libraryProduct{margin-top:14px}
+@media(max-width:650px){.library-panel{padding:18px}.library-toolbar .btn{width:100%}}
+
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a class="brand" href="#inicio">SÓ O <b>BÁSICO.</b></a>
+  <nav class="navlinks"><a href="#conteudo">Conteúdo</a><a href="#downloads">Downloads</a><a href="#minha-biblioteca">Minha biblioteca</a><a href="#servicos">Otimização</a><a href="#processo">Como funciona</a><a href="#configuracao-remota">Configuração remota</a><a href="#avaliacao">Avaliação</a></nav>
+  <div class="navright"><span class="auth-status" id="authStatus" aria-live="polite"></span><button class="btn small" id="openAuth" type="button">Entrar</button><a class="btn small" href="#conteudo">Explorar</a><a class="btn primary small" href="#avaliacao">Avaliar meu PC ↗</a></div>
+ </div>
+</header>
+<main>
+ <div class="wrap hero" id="inicio">
+  <div>
+   <span class="eyebrow"><i class="dot"></i> Tecnologia sem complicação</span>
+   <h1>O básico que<br><span class="blue">funciona.</span></h1>
+   <p class="lead">Conhecimento, ferramentas e otimização de computadores com um objetivo: aproveitar melhor o que seu PC já pode oferecer — sem fórmulas mágicas e sem enrolação.</p>
+   <div class="hero-actions"><a class="btn primary" href="#servicos">Conhecer otimizações ↗</a><a class="btn" href="#conteudo">Ver conteúdos</a></div>
+   <div class="micro">Menos complicação. Mais controle. Resultados testados com responsabilidade.</div>
+  </div>
+  <div class="hero-art" aria-label="Ilustração de computador com interface azul">
+   <div><div class="monitor"><div class="screen"><div class="screen-logo">SÓ O <span>BÁSICO.</span></div><div class="screen-line"></div><div class="screen-line short"></div><div class="screen-bars"><i style="--h:35%"></i><i style="--h:58%"></i><i style="--h:45%"></i><i style="--h:82%"></i><i style="--h:67%"></i><i style="--h:95%"></i><i style="--h:74%"></i></div></div></div><div class="monitor-stand"></div><div class="monitor-foot"></div></div>
+  </div>
+ </div>
+
+ <section id="conteudo">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Conhecimento aberto</span><h2>Informação útil, sem mistério.</h2><p>Um espaço para compartilhar ferramentas, configurações e aprendizados que realmente fazem sentido no dia a dia.</p></div>
+   <div class="grid">
+    <a class="card" href="#downloads"><div class="ico">⇩</div><h3>Downloads</h3><p>Programas, emuladores, utilitários e ferramentas selecionadas, sempre com versão e fonte identificadas.</p><span class="tag">VER DOWNLOADS ↗</span></a>
+    <article class="card"><div class="ico">⌘</div><h3>Scripts e ajustes</h3><p>PowerShell, planos de energia, configurações e ferramentas para ajustar o Windows com cuidado.</p><span class="tag">EM CONSTRUÇÃO</span></article>
+    <article class="card"><div class="ico">▤</div><h3>Guias e documentos</h3><p>Materiais sobre input lag, mouse, USB, Windows, BIOS, memória, drivers e emuladores.</p><span class="tag">EM CONSTRUÇÃO</span></article>
+    <article class="card"><div class="ico">⌁</div><h3>Dicas e testes</h3><p>Compatibilidade, comparações e experiências práticas explicadas de forma direta.</p><span class="tag">EM CONSTRUÇÃO</span></article>
+   </div>
+   <p class="micro" style="margin-top:16px">Os espaços de conteúdo estão preparados. Arquivos e links só serão publicados depois de verificados.</p>
+  </div>
+ </section>
+
+
+ <section id="downloads">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Arquivos e ferramentas</span><h2>Downloads</h2><p>Materiais gratuitos e pagos, organizados no mesmo lugar. Cada item terá sua identificação, versão, preço e condições antes de qualquer pagamento.</p></div>
+   <div class="download-groups">
+    <div class="download-group">
+     <span class="download-label free">GRÁTIS</span>
+     <h3>Downloads gratuitos</h3>
+     <p>Arquivos liberados para baixar sem pagamento.</p>
+     <article class="download-item">
+      <div><h4>InputLag - Mouse &amp; Teclado</h4><p>Arquivo ZIP gratuito com materiais de configuração para mouse e teclado.</p></div>
+      <a class="btn primary" href="downloads/InputLag%20-%20Mouse%20%26%20Teclado.zip" download="InputLag - Mouse &amp; Teclado.zip">Baixar ZIP ↧</a>
+     </article>
+     <div class="download-warning"><strong>Antes de aplicar:</strong> o ZIP contém arquivos .reg que alteram configurações do Windows. Leia as instruções e confira cada alteração; não importe arquivos que você não entenda. Considere criar um ponto de restauração e um backup antes de continuar.</div>
+    </div>
+    <div class="download-group">
+     <span class="download-label paid">PAGO</span>
+     <h3>Downloads pagos</h3>
+     <p>Arquivos com acesso liberado somente após confirmação do pagamento.</p>
+     <article class="download-item paid-item">
+      <div><span class="download-label paid">R$ 10 · POR PESSOA</span><h4>Otimizar Internet</h4><p>Arquivo ZIP com ferramenta e scripts para ajustar configurações de rede do Windows. Checkout de R$ 10 pela InfinitePay; entrega após confirmação do pagamento.</p></div>
+      <button class="btn primary" type="button" data-offer="internet">Ver detalhes e comprar ↗</button>
+     </article>
+     <div class="download-warning"><strong>Pagamento:</strong> confira os detalhes e faça login antes de prosseguir para a InfinitePay. Abrir ou cancelar o checkout não libera o arquivo. Depois do pagamento, consulte Minha biblioteca. A liberação automática depende da configuração do armazenamento privado.</div>
+    </div>
+   </div>
+   <div class="disclosure"><strong>Transparência antes de pagar.</strong> Antes de qualquer compra, você deverá conferir exatamente qual arquivo está adquirindo, o que ele contém, a versão, os requisitos, o preço e as condições de entrega. Nenhum pagamento deve ser feito sem essas informações.</div>
+  </div>
+ </section>
+
+
+ <section id="minha-biblioteca" aria-labelledby="libraryHeading">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Sua conta</span><h2 id="libraryHeading">Minha biblioteca</h2><p>Acompanhe suas compras e baixe os produtos liberados. O acesso é vinculado à conta utilizada no pagamento.</p></div>
+   <div class="library-panel">
+    <div class="library-toolbar">
+     <div><h3>Meus produtos</h3><p>Se você acabou de pagar, clique em Atualizar compras para conferir a liberação.</p></div>
+     <button class="btn primary" id="libraryRefresh" type="button" disabled>Atualizar compras ↻</button>
+    </div>
+    <div class="library-signin" id="librarySignIn"><p>Entre com Google ou e-mail para ver seus pedidos.</p><button class="btn small" id="libraryLogin" type="button">Entrar para ver compras</button></div>
+    <p class="library-status" id="libraryStatus" role="status" aria-live="polite"></p>
+    <article class="download-item paid-item" id="libraryProduct" hidden>
+     <div><span class="download-label paid">R$ 10 · OTIMIZAR INTERNET</span><h4>Otimizar Internet</h4><p id="libraryProductDetail"></p></div>
+     <button class="btn primary" id="libraryDownload" type="button" hidden>Baixar meu ZIP ↧</button>
+    </article>
+   </div>
+   <p class="formhint" style="margin-top:12px">Os arquivos pagos não são publicados na pasta pública do site. O link de download é temporário e depende de confirmação de compra pelo Supabase.</p>
+  </div>
+ </section>
+
+ <section id="configuracao-remota">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Atendimento individual</span><h2>Configuração remota</h2><p>Precisa de ajuda para configurar ou otimizar seu computador? Converse diretamente para explicar seu caso e entender o que pode ser feito.</p></div>
+   <div class="disclosure"><strong>Antes de entrar em contato:</strong> primeiro conversaremos sobre seu computador, o serviço necessário, os objetivos possíveis, as limitações, o valor e as condições. Nenhum pagamento é feito por este botão; você só decide depois de receber e aceitar essas informações.</div>
+   <div class="grid" style="margin:22px 0">
+    <article class="card" style="border:1px solid #287cbb"><span class="kicker">OPÇÃO 1</span><h3>Otimização do Windows</h3><p>Configuração e ajustes do Windows, conforme a necessidade do computador.</p><div style="font-size:2rem;font-weight:900;color:var(--blue);margin:12px 0">R$ 50</div><span class="tag">WINDOWS</span><br><button class="btn small offer-button" type="button" data-offer="windows">Ver explicação e condições</button></article>
+    <article class="card" style="border:1px solid var(--blue);box-shadow:0 10px 32px #0879c933"><span class="kicker">OPÇÃO 2 · COMPLETA</span><h3>Windows + BIOS</h3><p>Otimização do Windows e ajustes de BIOS quando forem necessários, compatíveis e seguros para o equipamento.</p><div style="font-size:2rem;font-weight:900;color:var(--blue);margin:12px 0">R$ 80</div><span class="tag">WINDOWS + BIOS</span><br><button class="btn small offer-button" type="button" data-offer="windows-bios">Ver explicação e condições</button></article>
+   </div>
+   <p class="formhint" style="margin-top:-8px;margin-bottom:18px">O pacote com BIOS inclui R$ 30 adicionais. Alterações na BIOS só serão feitas após avaliação e autorização, quando realmente fizerem sentido para o equipamento.</p>
+   <div class="remote-panel">
+    <div><h3>Vamos avaliar seu computador?</h3><p>Fale diretamente pelo WhatsApp para explicar seu caso e combinar os próximos passos.</p></div>
+    <button class="btn primary" type="button" data-offer="consultation">Ver informações antes de conversar ↗</button>
+   </div>
+   <div class="disclosure"><strong>Nosso compromisso:</strong> antes do pagamento, definimos objetivos realistas para o seu equipamento. Se os critérios principais acordados não forem alcançados, aplica-se a <strong>devolução de 50% do valor pago</strong>, conforme as condições apresentadas e aceitas antes da contratação. FPS não é garantido em números fixos.</div>
+  </div>
+ </section>
+
+ <section id="servicos">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Otimização personalizada</span><h2>Seu computador. Sua realidade. Seu objetivo.</h2><p>Não aplicamos um pacote cego em todo mundo. Primeiro entendemos o equipamento e o que está atrapalhando.</p></div>
+   <div class="split">
+    <div class="panel"><h3>O que buscamos melhorar</h3><p>O trabalho é direcionado para entregar uma experiência mais consistente e responsiva.</p><ul class="list"><li><span class="check">✓</span><span><b>Latência:</b> reduzir atrasos desnecessários no sistema e nos jogos.</span></li><li><span class="check">✓</span><span><b>Responsividade:</b> deixar comandos e uso do sistema mais ágeis.</span></li><li><span class="check">✓</span><span><b>Estabilidade:</b> reduzir oscilações, engasgos e inconsistências.</span></li><li><span class="check">↗</span><span><b>FPS:</b> buscar ganhos quando o hardware, o jogo e a situação permitirem.</span></li></ul></div>
+    <div class="panel"><h3>Sem receita pronta</h3><p>Cada computador tem uma combinação diferente de hardware, drivers, programas e limitações. Por isso, avaliamos antes de propor qualquer serviço.</p><ul class="list"><li><span class="check">✓</span><span>Verificação do cenário atual e dos objetivos.</span></li><li><span class="check">✓</span><span>Testes e comparação antes/depois quando viável.</span></li><li><span class="check">✓</span><span>Explicação do que foi alterado e por quê.</span></li><li><span class="check">✓</span><span>Orientação para reversão de ajustes relevantes.</span></li></ul></div>
+   </div>
+   <div class="promise" style="margin-top:18px"><div><h3>Compromisso com o resultado combinado.</h3><p>Antes do pagamento, definimos objetivos realistas para o seu equipamento. Se os critérios principais acordados não forem alcançados, aplica-se a <strong>devolução de 50% do valor pago</strong>, conforme as condições apresentadas e aceitas antes da contratação. FPS não é garantido em números fixos.</p></div><a class="btn primary" href="#avaliacao">Solicitar avaliação ↗</a></div>
+  </div>
+ </section>
+
+ <section id="processo">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Transparência do começo ao fim</span><h2>Como funciona?</h2><p>Você só decide contratar depois de entender o que será feito, o que pode melhorar e quanto custa.</p></div>
+   <div class="steps">
+    <div class="step"><b>01 · Você conta</b><span>Envia as informações do PC e explica o que gostaria de melhorar.</span></div>
+    <div class="step"><b>02 · Nós avaliamos</b><span>Analisamos o cenário e verificamos se existe oportunidade real de melhoria.</span></div>
+    <div class="step"><b>03 · Você decide</b><span>Recebe escopo, metas, limitações, condições e preço antes de pagar.</span></div>
+    <div class="step"><b>04 · Trabalho e testes</b><span>Com sua aprovação, realizamos o serviço e explicamos as alterações.</span></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="avaliacao">
+  <div class="wrap">
+   <div class="section-head"><span class="kicker">Primeiro passo</span><h2>Vamos conhecer seu PC?</h2><p>Preencha o que souber. Se não souber algum detalhe, pode deixar em branco. A avaliação vem antes de qualquer orçamento.</p></div>
+   <div class="split">
+    <div class="panel">
+     <h3>Envie seu cenário</h3>
+     <form id="pcForm">
+      <div class="formgrid">
+       <div class="field"><label for="name">Como podemos te chamar?</label><input id="name" name="name" placeholder="Seu nome" required></div>
+       <div class="field"><label for="contact">WhatsApp ou contato</label><input id="contact" name="contact" placeholder="(00) 00000-0000" required></div>
+       <div class="field"><label for="cpu">Processador</label><input id="cpu" name="cpu" placeholder="Ex.: Ryzen 5 5600"></div>
+       <div class="field"><label for="gpu">Placa de vídeo</label><input id="gpu" name="gpu" placeholder="Ex.: RTX 2060"></div>
+       <div class="field"><label for="ram">Memória RAM</label><input id="ram" name="ram" placeholder="Ex.: 16 GB, 3200 MHz"></div>
+       <div class="field"><label for="storage">Armazenamento</label><input id="storage" name="storage" placeholder="Ex.: SSD NVMe 1 TB"></div>
+       <div class="field"><label for="windows">Windows</label><select id="windows" name="windows"><option value="">Selecione se souber</option><option>Windows 11 25H2</option><option>Windows 11 24H2</option><option>Windows 10</option><option>Outro / Não sei</option></select></div>
+       <div class="field"><label for="service">Qual serviço você procura?</label><select id="service" name="service"><option value="Ainda não sei">Ainda não sei / Quero uma avaliação</option><option value="Otimização do Windows — R$ 50">Otimização do Windows — R$ 50</option><option value="Otimização completa: Windows + BIOS — R$ 80">Otimização completa: Windows + BIOS — R$ 80</option></select></div>
+       <div class="field"><label for="game">Jogo ou programa principal</label><input id="game" name="game" placeholder="Ex.: Free Fire, Warzone..."></div>
+       <div class="field full"><label for="goal">O que você gostaria de melhorar?</label><textarea id="goal" name="goal" placeholder="Conte sobre travamentos, latência, FPS, quedas de desempenho ou seu objetivo."></textarea></div>
+       <div class="field full"><label class="agree"><input type="checkbox" id="understand" required><span>Entendo que esta é uma solicitação de avaliação, não uma contratação. Os resultados dependem do equipamento e as metas e condições serão apresentadas antes de qualquer pagamento.</span></label></div>
+      </div>
+      <div class="form-actions"><button class="btn primary" type="submit">Preparar minha solicitação ↗</button><span class="formhint">Ao continuar, o WhatsApp abrirá com sua solicitação preenchida. Você confere e envia a mensagem.</span></div>
+      <div class="result" id="result" role="status"></div>
+     </form>
+    </div>
+    <aside class="panel">
+     <h3>Antes de contratar, uma coisa importante.</h3>
+     <p>Não estamos aqui para fazer milagres, muito menos para vender falsas promessas.</p>
+     <p>Às vezes, o computador perde desempenho por detalhes simples, configurações inadequadas ou ajustes que poderiam ser feitos de outra maneira. Mas cada equipamento tem suas limitações e nem toda otimização traz ganhos significativos.</p>
+     <p>Se o seu PC já estiver bem configurado ou se o serviço não compensar financeiramente, vamos ser sinceros. Se houver possibilidades reais de melhoria, faremos o melhor possível para aproveitar o potencial do seu equipamento.</p>
+     <div class="notice"><strong>Sem pagamento antecipado nesta etapa.</strong><br>Primeiro avaliamos. Depois explicamos o que faz sentido, quais resultados são esperados, as limitações e o valor. Você decide se quer seguir.</div>
+    </aside>
+   </div>
+  </div>
+ </section>
+ <dialog class="auth-dialog" id="authDialog" aria-labelledby="authHeading">
+  <div class="auth-content">
+   <div class="auth-title"><div><span class="kicker">ÁREA DO CLIENTE</span><h2 id="authHeading">Entre na sua conta</h2></div><button class="auth-close" id="authClose" type="button" aria-label="Fechar">×</button></div>
+   <button class="btn auth-google" id="googleLogin" type="button"><svg class="google-mark" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.76 7.18l7.73 6C44.42 37.96 46.98 31.92 46.98 24.55z"/><path fill="#FBBC05" d="M10.53 28.59A14.4 14.4 0 0 1 9.75 24c0-1.59.27-3.13.76-4.59l-7.98-6.19A23.9 23.9 0 0 0 0 24c0 3.87.93 7.52 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.91-5.8l-7.73-6c-2.14 1.44-4.89 2.3-8.18 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg> Continuar com Google</button>
+   <div class="auth-divider">ou use seu e-mail</div>
+   <form id="emailAuthForm">
+    <div class="auth-field"><label for="authEmail">E-mail</label><input id="authEmail" type="email" autocomplete="email" required placeholder="voce@exemplo.com"></div>
+    <div class="auth-field"><label for="authPassword">Senha</label><input id="authPassword" type="password" autocomplete="current-password" minlength="6" required placeholder="Mínimo de 6 caracteres"></div>
+    <div class="auth-actions"><button class="btn primary" id="emailSubmit" type="submit">Entrar com e-mail</button></div>
+   </form>
+   <p class="auth-switch" id="authSwitchText">Ainda não tem conta? <button id="toggleSignup" type="button">Criar conta</button></p>
+   <div class="auth-message" id="authMessage" role="status" aria-live="polite"></div>
+   <p class="auth-note">Ao criar uma conta, confirme seu endereço de e-mail se o sistema solicitar. Seus dados de acesso são protegidos pelo Supabase.</p>
+  </div>
+ </dialog>
+ <dialog class="offer-dialog" id="offerDialog" aria-labelledby="offerTitle">
+  <div class="dialog-content">
+   <div class="dialog-head"><div><span class="kicker" id="offerKicker">INFORMAÇÕES</span><h2 id="offerTitle">Entenda antes de decidir</h2></div><button class="dialog-close" id="dialogX" type="button" aria-label="Fechar explicação">×</button></div>
+   <div class="dialog-price" id="offerPrice"></div>
+   <p id="offerDescription"></p>
+   <div class="notice" id="offerConditions"></div>
+   <div class="form-actions"><button class="btn primary" id="offerCheckout" type="button" hidden>Comprar por R$ 10 na InfinitePay ↗</button><a class="btn primary" id="offerWhatsApp" href="https://wa.me/qr/LSTNS7FFZLMRB1" target="_blank" rel="noopener noreferrer">Conversar pelo WhatsApp — sem contratar ↗</a><button class="btn" id="dialogClose" type="button">Fechar</button></div>
+   <p class="formhint" id="offerPaymentInfo">Para os serviços, você conversa e combina as condições antes de contratar.</p><p class="auth-message" id="checkoutMessage" role="status" aria-live="polite"></p>
+  </div>
+ </dialog>
+</main>
+<footer><div class="wrap foot"><div><b>SÓ O BÁSICO.</b><br><span>O básico que funciona!</span></div><div>Conhecimento acessível. Otimização responsável.<br>© <span id="year"></span> SÓ O BÁSICO.</div></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// Configure com a URL e a chave PUBLICÁVEL (anon/publishable) do seu projeto Supabase.
+// Nunca coloque aqui a service_role key ou qualquer segredo privado.
+const SUPABASE_URL = 'https://dktnvntfvfhcjcglaaev.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_CnPCEZGhfX0nLDsrQauBzw_ABowsj0o';
+const authDialog = document.getElementById('authDialog');
+const authMessage = document.getElementById('authMessage');
+const authStatus = document.getElementById('authStatus');
+const authOpenButton = document.getElementById('openAuth');
+let isSignup = false;
+let supabaseClient = null;
+let libraryLoadedForUser = null;
+let libraryRequestNumber = 0;
+let hasPaidInternet = false;
+if (window.supabase && SUPABASE_ANON_KEY.startsWith('sb_publishable_')) {
+  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+}
+function showAuthMessage(message, isError=false) {
+  authMessage.textContent = message;
+  authMessage.classList.toggle('error', isError);
+  authMessage.style.display = 'block';
+}
+function setAuthMode(signup) {
+  isSignup = signup;
+  document.getElementById('authHeading').textContent = signup ? 'Crie sua conta' : 'Entre na sua conta';
+  document.getElementById('emailSubmit').textContent = signup ? 'Criar conta' : 'Entrar com e-mail';
+  document.getElementById('authPassword').autocomplete = signup ? 'new-password' : 'current-password';
+  document.getElementById('authSwitchText').innerHTML = signup
+    ? 'Já tem uma conta? <button id="toggleSignup" type="button">Entrar</button>'
+    : 'Ainda não tem conta? <button id="toggleSignup" type="button">Criar conta</button>';
+  document.getElementById('toggleSignup').addEventListener('click', () => { setAuthMode(!isSignup); authMessage.style.display='none'; });
+}
+function openAuthDialog() {
+  authMessage.style.display='none';
+  if (!supabaseClient) showAuthMessage('Falta configurar a chave publicável do Supabase neste index.html antes de ativar o login.', true);
+  authDialog.showModal();
+}
+authOpenButton.onclick = openAuthDialog;
+document.getElementById('authClose').addEventListener('click', () => authDialog.close());
+authDialog.addEventListener('click', e => { if(e.target===authDialog) authDialog.close(); });
+setAuthMode(false);
+document.getElementById('googleLogin').addEventListener('click', async () => {
+  if (!supabaseClient) return showAuthMessage('Configure primeiro a chave publicável do Supabase no arquivo.', true);
+  const { error } = await supabaseClient.auth.signInWithOAuth({ provider:'google', options:{ redirectTo: window.location.origin + window.location.pathname } });
+  if (error) showAuthMessage(error.message, true);
+});
+document.getElementById('emailAuthForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  if (!supabaseClient) return showAuthMessage('Configure primeiro a chave publicável do Supabase no arquivo.', true);
+  const email=document.getElementById('authEmail').value.trim();
+  const password=document.getElementById('authPassword').value;
+  const result = isSignup
+    ? await supabaseClient.auth.signUp({ email, password, options:{ emailRedirectTo: window.location.origin + window.location.pathname } })
+    : await supabaseClient.auth.signInWithPassword({ email, password });
+  if (result.error) return showAuthMessage(result.error.message, true);
+  if (isSignup && !result.data.session) showAuthMessage('Conta criada! Confira seu e-mail para confirmar o cadastro antes de entrar.');
+  else { showAuthMessage('Login realizado com sucesso!'); await refreshAuthState(); setTimeout(()=>authDialog.close(),900); }
+});
+function updateAuthUi(session) {
+  if (session?.user) {
+    const label = session.user.user_metadata?.full_name || session.user.email || 'Conta conectada';
+    authStatus.textContent = label;
+    if (libraryLoadedForUser !== session.user.id) {
+      ++libraryRequestNumber;
+      hasPaidInternet = false;
+      document.getElementById('libraryProduct').hidden = true;
+      document.getElementById('libraryDownload').hidden = true;
+    }
+    document.getElementById('librarySignIn').hidden = true;
+    document.getElementById('libraryRefresh').disabled = false;
+    if (libraryLoadedForUser !== session.user.id) {
+      libraryLoadedForUser = session.user.id;
+      // Não chame operações do Supabase sincronamente dentro de onAuthStateChange.
+      setTimeout(() => loadLibrary(), 0);
+    }
+    authOpenButton.textContent = 'Sair';
+    authOpenButton.onclick = async () => {
+      await supabaseClient.auth.signOut();
+      updateAuthUi(null);
+    };
+  } else {
+    authStatus.textContent = '';
+    libraryLoadedForUser = null;
+    ++libraryRequestNumber;
+    hasPaidInternet = false;
+    document.getElementById('librarySignIn').hidden = false;
+    document.getElementById('libraryProduct').hidden = true;
+    document.getElementById('libraryDownload').hidden = true;
+    document.getElementById('libraryStatus').textContent = '';
+    document.getElementById('libraryRefresh').disabled = true;
+    authOpenButton.textContent = 'Entrar';
+    authOpenButton.onclick = openAuthDialog;
+  }
+}
+async function refreshAuthState() {
+  if (!supabaseClient) return;
+  const { data: { session } } = await supabaseClient.auth.getSession();
+  updateAuthUi(session);
+}
+if (supabaseClient) {
+  supabaseClient.auth.onAuthStateChange((_event, session) => updateAuthUi(session));
+  refreshAuthState();
+}
+
+// Biblioteca: os pedidos só são consultados por uma função que valida a sessão no servidor.
+const libraryRefreshButton = document.getElementById('libraryRefresh');
+const libraryDownloadButton = document.getElementById('libraryDownload');
+const libraryProduct = document.getElementById('libraryProduct');
+const libraryDetail = document.getElementById('libraryProductDetail');
+const libraryStatus = document.getElementById('libraryStatus');
+function displayLibraryStatus(message) { libraryStatus.textContent = message; }
+async function libraryFunction(body) {
+  if (!supabaseClient) throw new Error('Supabase indisponível. Atualize a página.');
+  const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
+  if (sessionError || !session?.access_token) throw new Error('Faça login para acessar sua biblioteca.');
+  const {data,error} = await supabaseClient.functions.invoke('minha-biblioteca', {body});
+  if (error) {
+    let detail = 'Não foi possível consultar sua biblioteca. Verifique se a função minha-biblioteca está publicada.';
+    if (error.context && typeof error.context.json === 'function') {
+      try { const payload = await error.context.json(); if (typeof payload?.error === 'string') detail = payload.error; } catch(_) {}
+    }
+    throw new Error(detail);
+  }
+  return data;
+}
+async function loadLibrary() {
+  const requestId = ++libraryRequestNumber;
+  libraryRefreshButton.disabled = true;
+  libraryProduct.hidden = true;
+  libraryDownloadButton.hidden = true;
+  hasPaidInternet = false;
+  displayLibraryStatus('Consultando seus pedidos...');
+  try {
+    const data = await libraryFunction({action:'list'});
+    if (requestId !== libraryRequestNumber) return;
+    const orders = Array.isArray(data?.purchases) ? data.purchases : [];
+    const owned = orders.filter(p => p?.product_id === 'otimizar-internet-10');
+    const paid = owned.some(p => p.status === 'paid');
+    const pending = owned.some(p => p.status === 'pending');
+    if (paid) {
+      hasPaidInternet = true;
+      libraryProduct.hidden = false;
+      libraryDownloadButton.hidden = false;
+      libraryDetail.textContent = 'Pagamento confirmado. Clique para gerar um link temporário de download.';
+      displayLibraryStatus('Sua compra foi reconhecida. O ZIP pode ser baixado quando estiver disponível no armazenamento privado.');
+    } else if (pending) {
+      libraryProduct.hidden = false;
+      libraryDetail.textContent = 'Pagamento ainda não confirmado. Se acabou de pagar, clique em Atualizar compras.';
+      displayLibraryStatus('Há um pedido aguardando confirmação.');
+    } else {
+      displayLibraryStatus('Você ainda não possui pedidos desse produto nesta conta.');
+    }
+  } catch(err) {
+    if (requestId === libraryRequestNumber) displayLibraryStatus(err instanceof Error ? err.message : 'Não foi possível consultar sua biblioteca.');
+  } finally {
+    if (requestId === libraryRequestNumber) libraryRefreshButton.disabled = false;
+  }
+}
+libraryRefreshButton.addEventListener('click', loadLibrary);
+document.getElementById('libraryLogin').addEventListener('click', openAuthDialog);
+libraryDownloadButton.addEventListener('click', async () => {
+  if (!hasPaidInternet || libraryDownloadButton.disabled) return;
+  libraryDownloadButton.disabled = true;
+  displayLibraryStatus('Preparando download protegido...');
+  try {
+    const data = await libraryFunction({action:'download',product_id:'otimizar-internet-10'});
+    if (typeof data?.download_url !== 'string' || !data.download_url.startsWith(SUPABASE_URL + '/storage/v1/')) {
+      throw new Error('Link de download inválido.');
+    }
+    displayLibraryStatus('Link liberado. O download deve começar agora.');
+    window.location.assign(data.download_url);
+  } catch(err) {
+    displayLibraryStatus(err instanceof Error ? err.message : 'Falha ao liberar download.');
+  } finally {
+    libraryDownloadButton.disabled = false;
+  }
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+const offers = {
+ windows: {
+  title:'Otimização do Windows',
+  price:'R$ 50',
+  description:'Configuração e ajustes do Windows definidos após avaliar o computador e o objetivo que você quer alcançar.',
+  conditions:'Antes de qualquer contratação, conversaremos sobre seu equipamento, o que será feito, os resultados possíveis e as limitações. Não há garantia de FPS fixo. Se os critérios principais combinados não forem alcançados, aplica-se a devolução de 50% do valor pago, conforme as condições apresentadas e aceitas antes da contratação.'
+ },
+ 'windows-bios': {
+  title:'Otimização do Windows + BIOS',
+  price:'R$ 80',
+  description:'Inclui a otimização do Windows e pode incluir ajustes de BIOS quando forem necessários para o caso e compatíveis com o equipamento.',
+  conditions:'O pacote adiciona R$ 30 ao serviço de Windows. Nenhuma mudança de BIOS será feita sem avaliação e autorização. Antes de decidir, você conhecerá o escopo, os resultados possíveis, as limitações e as condições. Não há garantia de FPS fixo; aplica-se a condição de devolução de 50% nos critérios acordados, conforme explicado antes da contratação.'
+ },
+ consultation: {
+  title:'Conversa e avaliação',
+  price:'Sem cobrança nesta etapa',
+  description:'O primeiro contato serve para entender seu computador, seu objetivo e qual serviço, se houver, faz sentido para o seu caso.',
+  conditions:'Você receberá a explicação do escopo, dos resultados possíveis, das limitações, do preço e das condições antes de decidir. Este botão não contrata nem cobra; nenhuma decisão é exigida durante o primeiro contato.',
+  buttonText:'Conversar pelo WhatsApp — sem contratar ↗'
+ },
+ internet: {
+  title:'Otimizar Internet',
+  price:'R$ 10 por pessoa',
+  description:'Arquivo ZIP com o TCPOptimizer.exe, scripts para aplicar e redefinir configurações de rede do Windows e um arquivo de backup de configurações.',
+  conditions:'Ao clicar em Comprar, você será direcionado à InfinitePay para pagar R$ 10. Abrir ou fechar o checkout não confirma a compra. Após pagamento confirmado, consulte Minha biblioteca para baixar quando o armazenamento privado estiver configurado. Caso não esteja disponível, contate o suporte. O pacote contém um script que exige privilégios de administrador e altera TCP/IP, Registro e adaptadores de rede; a redefinição pode não restaurar todas as configurações anteriores. Leia os arquivos e faça backup antes de executar. Não há garantia de redução de ping.',
+  buttonText:'Ajuda pelo WhatsApp ↗'
+ }
+};
+const offerDialog=document.getElementById('offerDialog');
+const checkoutButton=document.getElementById('offerCheckout');
+const checkoutMessage=document.getElementById('checkoutMessage');
+let activeOffer = null;
+function setCheckoutMessage(message, isError=false) {
+  checkoutMessage.textContent=message;
+  checkoutMessage.classList.toggle('error',isError);
+  checkoutMessage.style.display=message ? 'block' : 'none';
+}
+checkoutButton.addEventListener('click',async () => {
+  if (activeOffer !== 'internet' || checkoutButton.disabled) return;
+  if (!supabaseClient) return setCheckoutMessage('Não foi possível carregar o login. Atualize a página e confira sua conexão.',true);
+  const {data:{session},error:sessionError}=await supabaseClient.auth.getSession();
+  if(sessionError || !session?.access_token) {
+    offerDialog.close();
+    openAuthDialog();
+    showAuthMessage('Entre com Google ou e-mail para comprar. Depois, abra os detalhes de Otimizar Internet e clique em Comprar.');
+    return;
+  }
+  checkoutButton.disabled=true;
+  checkoutButton.textContent='Gerando link seguro...';
+  setCheckoutMessage('Solicitando seu checkout à InfinitePay...');
+  try {
+    // A sessão do Supabase é enviada automaticamente pela biblioteca.
+    const {data,error}=await supabaseClient.functions.invoke('create-checkout',{body:{}});
+    if(error) {
+      let detail='Não foi possível gerar o link de pagamento.';
+      if(error.context && typeof error.context.json==='function') {
+        try { const response=await error.context.json(); detail=response.error||detail; } catch(_) {}
+      }
+      throw new Error(detail);
+    }
+    const checkoutUrl=data?.checkout_url;
+    if(typeof checkoutUrl!=='string' || !checkoutUrl.startsWith('https://'))
+      throw new Error('O Supabase não retornou um endereço de pagamento válido.');
+    setCheckoutMessage('Link criado! Abrindo o checkout da InfinitePay...');
+    window.location.assign(checkoutUrl);
+  } catch(err) {
+    setCheckoutMessage((err instanceof Error ? err.message : 'Não foi possível iniciar o pagamento.')+' Nenhuma compra foi confirmada.',true);
+  } finally {
+    checkoutButton.disabled=false;
+    checkoutButton.textContent='Comprar por R$ 10 na InfinitePay ↗';
+  }
+});
+document.querySelectorAll('[data-offer]').forEach(function(button){
+ button.addEventListener('click',function(){
+  const offer=offers[button.dataset.offer];
+  if(!offer)return;
+  document.getElementById('offerTitle').textContent=offer.title;
+  document.getElementById('offerPrice').textContent=offer.price;
+  document.getElementById('offerDescription').textContent=offer.description;
+  document.getElementById('offerConditions').textContent=offer.conditions;
+  activeOffer=button.dataset.offer;
+  const buying=activeOffer==='internet';
+  checkoutButton.hidden=!buying;
+  document.getElementById('offerWhatsApp').textContent=offer.buttonText || 'Conversar pelo WhatsApp — sem contratar ↗';
+  document.getElementById('offerPaymentInfo').textContent=buying
+    ? 'O pagamento é feito na InfinitePay. Se sair sem pagar, o produto não será liberado. Depois de pagar, volte ao site e abra Minha biblioteca. Se o arquivo ainda não estiver disponível, contate o suporte.'
+    : 'Este botão é apenas para conversar; nenhum serviço é cobrado automaticamente.';
+  setCheckoutMessage('');
+  offerDialog.showModal();
+ });
+});
+document.getElementById('dialogX').addEventListener('click',function(){offerDialog.close();});
+document.getElementById('dialogClose').addEventListener('click',function(){offerDialog.close();});
+offerDialog.addEventListener('click',function(event){if(event.target===offerDialog)offerDialog.close();});
+document.getElementById('pcForm').addEventListener('submit', function(e){
+ e.preventDefault();
+ if (!this.reportValidity()) return;
+ const data = new FormData(this);
+ const labels = {name:'Nome',contact:'Contato',service:'Serviço de interesse',cpu:'Processador',gpu:'Placa de vídeo',ram:'Memória RAM',storage:'Armazenamento',windows:'Windows',game:'Jogo/programa principal',goal:'Objetivo'};
+ const lines = ['Olá! Gostaria de solicitar uma avaliação — SÓ O BÁSICO.',''];
+ for (const [key,label] of Object.entries(labels)) {
+  const value = (data.get(key) || '').toString().trim();
+  lines.push(label + ': ' + (value || 'Não informado'));
+ }
+ lines.push('', 'Entendo que esta é uma solicitação de avaliação e que o serviço, os limites e as condições serão confirmados antes de qualquer pagamento.');
+ const message = encodeURIComponent(lines.join('\n'));
+ const whatsappUrl = 'https://wa.me/5537991095648?text=' + message;
+ const result = document.getElementById('result');
+ result.style.display='block';
+ result.textContent='Sua solicitação está pronta. O WhatsApp será aberto com os dados preenchidos. Confira a mensagem e toque em Enviar para falar comigo.';
+ const link = document.createElement('a');
+ link.className='btn primary';
+ link.href=whatsappUrl;
+ link.target='_blank';
+ link.rel='noopener noreferrer';
+ link.textContent='Abrir WhatsApp e enviar solicitação ↗';
+ link.style.marginTop='12px';
+ result.appendChild(document.createElement('br'));
+ result.appendChild(link);
+ window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+});
+</script>
+</body>
+</html>
